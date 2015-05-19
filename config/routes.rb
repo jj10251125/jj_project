@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'user/signup'
+ # get 'jshoes/main'
+  get 'jshoes/main'
+  root 'jshoes#main'
+  get 'user/signup_complete_page'
+  post 'user/signup_complete'
+  get 'jshoes/shoes_category'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

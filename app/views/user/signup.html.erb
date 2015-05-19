@@ -1,0 +1,18 @@
+<div>
+  <h4><%= flash[:alert] %></h4>
+</div>
+
+<div style="background-color: #e9eaed;">
+  <h1>JOIN US</h1>
+  <form action="/user/signup_complete" method="post">
+    아이디: <input type="text" name="id_user" style="width:70px;"><br>
+    비밀번호: <input type="password" name="password" style="width:70px;"> (6자~18자)<br>
+    비밀번호 확인: <input type="password" name="retype_password" style="width:70px;"><br>
+    이름: <input type="text" name="username" style="width:70px;"><br>
+    주소: <input type="text" name="address"><br>
+    휴대전화: <input type="text" name="phone_number" style="width:100px;"><br>
+    이메일: <input type="text" name="email"><br>
+    <br>
+    <input type="submit" value="OK">
+  </form>
+</div>
