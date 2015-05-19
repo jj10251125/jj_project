@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get 'user/signup_complete_page'
   post 'user/signup_complete'
   get 'jshoes/shoes_category'
+  get 'user/login'
+  post 'user/login_complete'
+  get 'user/logout_complete'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

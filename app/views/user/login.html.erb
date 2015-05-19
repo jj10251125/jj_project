@@ -1,0 +1,11 @@
+<p><%= flash[:alert] %></p>
+
+<div style="background-color: #e9eaed; width:400px; height:200px; text-align:center;">
+  <h1>LOGIN</h1>
+  <form action="/user/login_complete" method="post">
+    <input type="text" name="id_user" placeholder="ID"><br>
+    <input type="password" name="password" placeholder="PASSWORD"><br>
+<br>
+    <input type="submit" value="LOGIN">
+  </form>
+</div>
