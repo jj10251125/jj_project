@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get 'user/logout_complete'
   get 'jshoes/show/:id' => 'jshoes#show'
   get 'jshoes/write'
-  get 'jshoes/write_complete'
+  post 'jshoes/write_complete'
   get 'jshoes/edit'
   get 'jshoes/edit_complete'
   get 'jshoes/delete_complete'
