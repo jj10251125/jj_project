@@ -1,4 +1,7 @@
 class JshoesController < ApplicationController
+
+http_basic_authenticate_with name: "admin", password: "secret", except: [:main, :shoes_category, :show ]
+
   def main
     @posts = Post.all
   end
