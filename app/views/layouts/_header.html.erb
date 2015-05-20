@@ -1,0 +1,7 @@
+<h4><a href="/">JSHOES</a> || <a href="/woman">여성슈즈</a> | <a href="/man">남성슈즈</a> | <a href="/child">아동슈즈</a> <% if session[:user_id].nil? %> | <a href="/user/signup">회원가입
+</a> | <a href="/user/login">로그인</a>
+<% else %>
+| <a href="/user/logout_complete">로그아웃</a>
+<% end %>
+</h4>
+

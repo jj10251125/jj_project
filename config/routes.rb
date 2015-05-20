@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'user/signup'
+  get '/:category' => 'jshoes#shoes_category'
  # get 'jshoes/main'
   get 'jshoes/main'
   root 'jshoes#main'

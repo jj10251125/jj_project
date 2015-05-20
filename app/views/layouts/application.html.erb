@@ -8,12 +8,7 @@
 </head>
 <body>
 
-<h4><a href="#">JSHOES</a> || <a href="#">여성슈즈</a> | <a href="#">남성슈즈</a> | <a href="#">아동슈즈</a> <% if session[:user_id].nil? %> | <a href="/user/signup">회원가입
-</a> | <a href="/user/login">로그인</a>
-<% else %>
-| <a href="/user/logout_complete">로그아웃</a>
-<% end %>
-</h4>
+<%= render :partial => "layouts/header" %>
 
 <%= yield %>
 
