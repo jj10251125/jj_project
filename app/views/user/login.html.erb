@@ -1,11 +1,18 @@
 <p><%= flash[:alert] %></p>
 
-<div style="background-color: #e9eaed; width:400px; height:200px; text-align:center;">
-  <h1>LOGIN</h1>
+<div style="border:2px solid #FDCE67; width:400px; height:250px; text-align:center;">
+  <h1 style="font-family:Arial;">LOGIN</h1>
   <form action="/user/login_complete" method="post">
     <input type="text" name="id_user" placeholder="ID"><br>
     <input type="password" name="password" placeholder="PASSWORD"><br>
 <br>
     <input type="submit" value="LOGIN">
+    
   </form>
+<br>
+  <span style="color:gray; font-size:12px;">아직 아이디가 없으신가요?</span>
+  <form action="/user/signup" method="get">
+    <input type="submit" value="JOIN US" style="width:170px; background-color:white;">
+  </form>
+
 </div>
