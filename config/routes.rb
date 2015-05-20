@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   get 'jshoes/show/:id' => 'jshoes#show'
   get 'jshoes/write'
   post 'jshoes/write_complete'
-  get 'jshoes/edit'
-  get 'jshoes/edit_complete'
+  get 'jshoes/edit/:id' => 'jshoes#edit'
+  post 'jshoes/edit_complete'
   get 'jshoes/delete_complete'
 
   # The priority is based upon order of creation: first created -> highest priority.
