@@ -5,3 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+categories = ["여성슈즈","남성슈즈","아동슈즈"]
+
+categories.each do |category|
+  0.upto(1) do |i|
+    p = Post.new
+    p.user_id = i + 1
+    p.category = category
+    p.title = "#{category}집#{i} 이름"
+    p.content = "#{category}집#{i} 설명"
+    p.save
+  end
+end
