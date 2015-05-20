@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   post 'jshoes/write_complete'
   get 'jshoes/edit/:id' => 'jshoes#edit'
   post 'jshoes/edit_complete'
-  get 'jshoes/delete_complete'
+  get 'jshoes/delete_complete/:id' => 'jshoes#delete_complete'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
