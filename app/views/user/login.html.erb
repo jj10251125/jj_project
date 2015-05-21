@@ -1,4 +1,5 @@
-<p><%= flash[:alert] %></p>
+<!--
+<p></p>
 
 <div style="border:2px solid #FDCE67; width:400px; height:250px; text-align:center;">
   <h1 style="font-family:Arial;">LOGIN</h1>
@@ -15,4 +16,36 @@
     <input type="submit" value="JOIN US" style="width:170px; background-color:white;">
   </form>
 
+</div>
+-->
+
+<div class="container">
+  <% if !flash[:alert].nil? %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4 text-center">
+      <h3 class="form-heading">로그인하기</h3>
+
+      <form action="/user/login_complete" method="post">
+        <p><input class="form-input" type="text" name="id_user" placeholder="ID"></p>
+        <p><input class="form-input" type="password" name="password" placeholder="PASSWORD"></p>
+        <input class="btn btn-lg btn-block" type="submit" value="LOGIN">
+      </form>
+
+   <br>
+   <span style="color:gray; font-size:12px;">아직 아이디가 없으신가요?</span>
+   <form action="/user/signup" method="get">
+   <input class="btn btn-default btn-xs btn-block" type="submit" value="JOIN US">
+   </form>
+
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
 </div>

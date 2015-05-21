@@ -1,5 +1,6 @@
+<!--
 <div>
-  <h4><%= flash[:alert] %></h4>
+  
 </div>
 
 <div style="background-color: #e9eaed;">
@@ -15,4 +16,34 @@
     <br>
     <input type="submit" value="OK">
   </form>
+</div>
+-->
+
+<div class="container">
+  <% if !flash[:alert].nil? %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4 text-center">
+      <h3 class="form-heading">JOIN US</h3>
+
+      <form action="/user/signup_complete" method="post">
+        <p><input class="form-input" type="text" name="id_user" placeholder="아이디"></p>
+        <p><input class="form-input" type="password" name="password" placeholder="비밀번호(6자~18자)"></p>
+        <p><input class="form-input" type="password" name="retype_password" placeholder="비밀번호 확인"></p>
+        <p><input class="form-input" type="username" name="username" placeholder="이름"></p>
+        <p><input class="form-input" type="address" name="address" placeholder="주소"></p>
+        <p><input class="form-input" type="phone_number" name="phone_number" placeholder="휴대전화"></p>
+        <p><input class="form-input" type="email" name="email" placeholder="이메일"></p>
+        <input class="btn btn-lg btn-success btn-block" type="submit" value="OK">
+      </form>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
 </div>
