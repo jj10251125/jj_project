@@ -1,15 +1,31 @@
-<p><%= flash[:alert] %></p>
-<h2>상품 게시글 수정하기</h2>
 
-<form action="/jshoes/edit_complete" method="post">
-  <input type="hidden" name="id" value="<%= @post.id %>">
-  <p style="color: #ff0000">분류:
-  <select name="post_category">
-    <option value="여성슈즈">여성슈즈</option>
-    <option value="남성슈즈">남성슈즈</option>
-    <option value="아동슈즈">아동슈즈</option>
-  </select></p>
-  <p>제목: <input type="text" name="post_title" value="<%= @post.title %>"></p>
-  <p>내용: <textarea name="post_content"><%= @post.content %></textarea></p>
-  <input type="submit" value="수정하기">
-</form>
+<div class="container">
+  <% if !flash[:alert].nil? %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4 text-center">
+      <h3 class="form-heading"> 상품 게시글 수정하기</h3>
+
+      <form action="/jshoes/write_complete" method="post">
+        <input type="hidden" name="id" value="<%= @post.id %>">
+        <p>+ 분류
+        <select name="post_category">
+          <option value="여성슈즈">여성슈즈</option>
+          <option value="남성슈즈">남성슈즈</option>
+          <option value="아동슈즈">아동슈즈</option>
+        </select></p>
+        <p><input class="form-input" type="text" name="post_title" value="<%= @post.title %>"></p>
+        <p><textarea class="form-textarea" name="post_content"><%= @post.content %></textarea></p>
+        <input class="btn btn-lg btn-block" type="submit" value="수정하기">
+      </form>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
+</div>
