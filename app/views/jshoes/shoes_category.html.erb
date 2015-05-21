@@ -1,7 +1,10 @@
-<div>
- <h2><%= @category %> 리스트입니다.</h2>
+
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h6 class="panel-title"><%= @category %></h6>
+    </div>
+  </div>
+
+  <%= render :partial => "jshoes/posts" %>
 </div>
-
-<hr>
-
-<%= render :partial => "jshoes/posts" %>
