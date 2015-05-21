@@ -45,14 +45,14 @@ class UserController < ApplicationController
       redirect_to :back
     else
       session[:user_id] = user.id
-    #  flash[:alert] = "성공적으로 로그인하였습니다."
+      flash[:alert] = "성공적으로 로그인하였습니다."
       redirect_to "/"
     end
   end
 
   def logout_complete
     reset_session
-   # flash[:alert] = "성공적으로 로그아웃하였습니다."
+    flash[:alert] = "성공적으로 로그아웃하였습니다."
     redirect_to "/"
   end
 
