@@ -20,7 +20,8 @@ Rails.application.routes.draw do
   get 'jshoes/review'
   get 'user/review_write'
   post 'user/review_complete'
- 
+  post 'jshoes/review_comment_complete'
+  get 'jshoes/delete_comment_complete/:id' => 'jshoes#delete_comment_complete'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

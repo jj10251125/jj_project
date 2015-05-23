@@ -80,4 +80,21 @@ http_basic_authenticate_with name: "admin", password: "secret", except: [:main, 
 
   def qna
   end
+  
+  def review_comment_complete
+    comment = Comment.new
+    comment.review_id = params[:review_id]
+    comment.content = params[:comment_content]
+    comment.save
+
+    flash[:alert] = "새 댓글을 달았습니다."
+    redirect_to "/jshoes/review_show/#{comment.review_id}"
+  end
+  
+  def delete_comment_complete
+    comment = Comment.find(params[:id])
+    comment.destroy
+    flash[:alert] = "댓글이 삭제되었습니다."
+    redirect_to "/jshoes/review_show/#{comment.review_id}"
+  end
 end
