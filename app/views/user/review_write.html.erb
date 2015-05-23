@@ -1,0 +1,27 @@
+<div class="container">
+  <% if !flash[:alert].nil? %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4 text-center">
+      <h3 class="form-heading">후기 등록하기</h3>
+
+      <form action="/user/review_complete" method="post" enctype="multipart/form-data">
+        
+        <p><input class="form-input" type="text" name="review_title" placeholder="제목을 입력해주세요."></p>
+        <p><textarea class="form-textarea" name="review_content" placeholder="후기를 작성해주세요."></textarea></p>
+        <p>+ 사진 업로드</p>
+        <p><input type="file" name="image"></p>
+        <input class="btn btn-lg btn-block" type="submit" value="등록하기">
+      </form>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
+</div>
+

@@ -56,4 +56,21 @@ class UserController < ApplicationController
     redirect_to "/"
   end
 
+  def review_write
+  end
+
+  def review_complete
+    post = Review.new
+    post.title = params[:review_title]
+    post.content = params[:review_content]
+    post.image = params[:image]
+    if post.save
+      flash[:alert] = "후기를 작성해주셔서 감사합니다."
+      redirect_to "/jshoes/review_show/#{post.id}"
+    else
+      flash[:alert] = post.errors.values.flatten.join(' ')
+      redirect_to :back
+    end
+  end
+
 end

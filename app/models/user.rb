@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_many :posts
- # has_many :comments
+  has_many :comments
+  has_many :reviews
+
   validates :id_user, :presence => { :message => "아이디는 필수 항목 입니다." }
   validates :id_user, :uniqueness => { :message => "이미 존재하는 아이디입니다.", :case_sensitive => false }
   validates :password, :length => { :minimum => 6, :too_short => "Your password must be at least 6 characters long." }

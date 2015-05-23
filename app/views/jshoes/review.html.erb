@@ -1,0 +1,36 @@
+<div class="panel">
+ <div class="row panel-body">
+  
+  <div class="col-xs-3">
+  </div>
+   <div class="col-xs-6">
+      <h3 style="text-align:center;">상품후기</h3><br>
+  <h5 style="color:gray;text-align:right;"><a href="/user/review_write"><strong>글쓰기</strong></a></h5>
+    <div class="list-group">
+    <a href="#" class="list-group-item disabled">고객님들의 소중한 후기♥</a>
+    <% @posts.reverse.each do |post| %>
+    <a href="/jshoes/review_show/<%= post.id %>" class="list-group-item"><%= post.title %></a>
+    <% end %>
+    </div>
+   </div>
+  <div class="col-xs-3">
+    </div>
+
+</div>
+<!--
+<#% @posts.reverse.each do |post| %>
+<div class="panel">
+  <div class="row panel-body">
+    <div class="col-xs-3">
+    </div>
+    <div class="col-xs-3 text-right">
+      <a href="/jshoes/show/<#%= post.id %>"><img src="<#%= post.image_url(:thumb) %>" class="img-rounded"></a>
+    </div>
+    <div class="col-xs-6">
+      <h4><a href="/jshoes/show/<#%= post.id %>"><#%= post.title %></a> </h4>
+      <p><span class="label label-warning"><#%= post.category %></span></p>
+      <p><strong>admin</strong></p>
+    </div>
+  </div>
+</div>
+<#% end %>-->

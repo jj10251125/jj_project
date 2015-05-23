@@ -11,12 +11,16 @@ Rails.application.routes.draw do
   post 'user/login_complete'
   get 'user/logout_complete'
   get 'jshoes/show/:id' => 'jshoes#show'
+  get 'jshoes/review_show/:id' => 'jshoes#review_show'
   get 'jshoes/write'
   post 'jshoes/write_complete'
   get 'jshoes/edit/:id' => 'jshoes#edit'
   post 'jshoes/edit_complete'
   get 'jshoes/delete_complete/:id' => 'jshoes#delete_complete'
-
+  get 'jshoes/review'
+  get 'user/review_write'
+  post 'user/review_complete'
+ 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
