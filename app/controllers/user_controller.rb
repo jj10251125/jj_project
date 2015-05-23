@@ -61,6 +61,7 @@ class UserController < ApplicationController
 
   def review_complete
     post = Review.new
+    post.user_id = session[:user_id]
     post.title = params[:review_title]
     post.content = params[:review_content]
     post.image = params[:image]

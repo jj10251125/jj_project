@@ -9,7 +9,7 @@
     <div class="list-group">
     <a href="#" class="list-group-item disabled">고객님들의 소중한 후기♥</a>
     <% @posts.reverse.each do |post| %>
-    <a href="/jshoes/review_show/<%= post.id %>" class="list-group-item"><%= post.title %>[<%= post.comments.count %>]</a>
+    <a href="/jshoes/review_show/<%= post.id %>" class="list-group-item"><strong><%= post.title %></strong>[<%= post.comments.count %>] by <%= post.user.username %>님♥</a>
     <% end %>
     </div>
    </div>
