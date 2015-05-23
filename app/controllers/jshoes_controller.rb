@@ -67,9 +67,6 @@ http_basic_authenticate_with name: "admin", password: "secret", except: [:main, 
     redirect_to "/"
   end
 
-  def notice
-  end
-
   def review
     @posts = Review.all
   end
