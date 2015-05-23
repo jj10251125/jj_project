@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150521110337) do
     t.string   "category"
     t.string   "title"
     t.text     "content"
+    t.integer  "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "image"

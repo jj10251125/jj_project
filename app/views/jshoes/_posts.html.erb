@@ -1,34 +1,37 @@
-
-<% @posts.reverse.each do |post| %>
+<!--
+<#% @posts.reverse.each do |post| %>
 <div class="panel">
   <div class="row panel-body">
     <div class="col-xs-3">
     </div>
     <div class="col-xs-3 text-right">
-      <a href="/jshoes/show/<%= post.id %>"><img src="<%= post.image_url(:thumb) %>" class="img-rounded"></a>
+      <a href="/jshoes/show/<#%= post.id %>"><img src="<#%= post.image_url(:thumb) %>" class="img-rounded"></a>
     </div>
     <div class="col-xs-6">
-      <h4><a href="/jshoes/show/<#%= post.id %>"><%= post.title %></a> </h4>
-      <p><span class="label label-warning"><%= post.category %></span></p>
+      <h4><a href="/jshoes/show/<#%= post.id %>"><#%= post.title %></a> </h4>
+      <p><span class="label label-warning"><#%= post.category %></span></p>
       <p><strong>admin</strong></p>
     </div>
   </div>
 </div>
-<% end %>
-
-<!--
-<#% @posts.reverse.each do |post| %>
-<div class="panel">
-<div class="row panel-body">
-  <div class="col-xs-4 col-xs-4 col-xs-4">
+<#% end %>
+-->
+<br>
+<div class="row">
+<% @posts.reverse.each do |post| %> 
+ <div class="col-xs-6 col-md-3">
    <div class="thumbnail">
-     <a href="/jshoes/show/<#%= post.id %>"><img src="<#%= post.image_url(:thumb) %>" class="img-rounded"></a>
+     <a href="/jshoes/show/<%= post.id %>"><img src="<%= post.image_url(:thumb) %>" class="img-rounded"></a>
      <div class="caption">
-       <h6>products</h6>
-       <p>...</p>
+       <span class="label label-warning"><%= post.category %></span>
+       <br>
+       <a href="/jshoes/show/<%= post.id %>"><strong><%= post.title %></strong></a>
+       <hr>
+       <span style="color:gray;font-size:12px;"><%= post.content %></span><br>
+       <span style="color:gray;font-size:13px;"><strong><%= post.price %>원</strong><br>
      </div>
    </div>
   </div>
+<% end %>
 </div>
-</div>
-<#% end %>-->
+

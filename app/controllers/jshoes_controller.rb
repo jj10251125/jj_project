@@ -30,8 +30,9 @@ http_basic_authenticate_with name: "admin", password: "secret", except: [:main, 
     post.category = params[:post_category]
     post.title = params[:post_title]
     post.content = params[:post_content]
+    post.price = params[:post_price]
     post.image = params[:image]
-	 if post.save
+    if post.save
       flash[:alert] = "저장되었습니다."
       redirect_to "/jshoes/show/#{post.id}"
     else
@@ -49,6 +50,7 @@ http_basic_authenticate_with name: "admin", password: "secret", except: [:main, 
     post.category = params[:post_category]
     post.title = params[:post_title]
     post.content = params[:post_content]
+    post.price = params[:post_price]
     if post.save
       flash[:alert] = "수정되었습니다."
       redirect_to "/jshoes/show/#{post.id}"
