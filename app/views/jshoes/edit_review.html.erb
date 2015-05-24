@@ -1,0 +1,27 @@
+<div class="container">
+  <% if !flash[:alert].nil? %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4 text-center">
+      <h3 class="form-heading">후기 게시글 수정하기</h3>
+
+      <form action="/jshoes/edit_review_complete" method="post">
+        <input type="hidden" name="id" value="<%= @post.id %>">
+      
+        <p><input class="form-input" type="text" name="review_title" value="<%= @post.title %>"></p>
+        <p><input class="form-input" type="text" name="review_content" value="<%= @post.content %>"></p>
+
+        <input class="btn btn-lg btn-block" type="submit" value="수정하기">
+      </form>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
+</div>
+

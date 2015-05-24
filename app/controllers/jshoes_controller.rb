@@ -27,6 +27,7 @@ http_basic_authenticate_with name: "admin", password: "secret", except: [:main, 
 
   def write_complete
     post = Post.new
+ #   post.user_id = session[:user_id]
     post.category = params[:post_category]
     post.title = params[:post_title]
     post.content = params[:post_content]
@@ -45,6 +46,14 @@ http_basic_authenticate_with name: "admin", password: "secret", except: [:main, 
     @post = Post.find(params[:id])
   end
 
+  def edit_review
+    @post = Review.find(params[:id])
+    if @post.user_id != session[:user_id]
+      flash[:alert] = "수정 권한이 없습니다."
+      redirect_to :back
+    end
+  end
+
   def edit_complete
     post = Post.find(params[:id])
     post.category = params[:post_category]
@@ -60,11 +69,36 @@ http_basic_authenticate_with name: "admin", password: "secret", except: [:main, 
     end
   end
 
+  def edit_review_complete
+    post = Review.find(params[:id])
+    post.title = params[:review_title]
+    post.content = params[:review_content]
+    if post.save
+      flash[:alert] = "수정되었습니다."
+      redirect_to "/jshoes/review_show/#{post.id}"
+    else
+      flash[:alert] = post.errors.values.flatten.join(' ')
+      redirect_to :back
+    end
+  end
+
   def delete_complete
     post = Post.find(params[:id])
     post.destroy
     flash[:alert] = "삭제되었습니다."
     redirect_to "/"
+  end
+
+  def delete_review_complete
+    post = Review.find(params[:id])
+    if post.user_id == session[:user_id]
+      post.destroy
+      flash[:alert] = "삭제되었습니다."
+      redirect_to "/jshoes/review"
+    else
+      flash[:alert] = "삭제 권한이 없습니다."
+      redirect_to :back
+    end
   end
 
   def review
@@ -73,6 +107,7 @@ http_basic_authenticate_with name: "admin", password: "secret", except: [:main, 
 
   def review_show
     @post = Review.find(params[:id])
+    @comment_writer = User.where(id: session[:user_id])[0]
   end
 
   def qna
@@ -80,6 +115,7 @@ http_basic_authenticate_with name: "admin", password: "secret", except: [:main, 
   
   def review_comment_complete
     comment = Comment.new
+    comment.user_id = session[:user_id]
     comment.review_id = params[:review_id]
     comment.content = params[:comment_content]
     comment.save
@@ -90,8 +126,13 @@ http_basic_authenticate_with name: "admin", password: "secret", except: [:main, 
   
   def delete_comment_complete
     comment = Comment.find(params[:id])
-    comment.destroy
-    flash[:alert] = "댓글이 삭제되었습니다."
-    redirect_to "/jshoes/review_show/#{comment.review_id}"
+    if comment.user_id == session[:user_id]
+      comment.destroy
+      flash[:alert] = "댓글이 삭제되었습니다."
+      redirect_to "/jshoes/review_show/#{comment.review_id}"
+    else
+      flash[:alert] = "해당 댓글의 삭제 권한이 없습니다."
+      redirect_to :back
+    end
   end
 end
