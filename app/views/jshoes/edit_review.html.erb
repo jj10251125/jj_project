@@ -15,7 +15,7 @@
         <input type="hidden" name="id" value="<%= @post.id %>">
       
         <p><input class="form-input" type="text" name="review_title" value="<%= @post.title %>"></p>
-        <p><input class="form-input" type="text" name="review_content" value="<%= @post.content %>"></p>
+        <p><textarea class="form-textarea" name="review_content"><%= @post.content %></textarea></p> 
 
         <input class="btn btn-lg btn-block" type="submit" value="수정하기">
       </form>
