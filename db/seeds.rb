@@ -7,19 +7,38 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-categories = ["여성슈즈","남성슈즈","아동슈즈"]
+#categories = ["여성슈즈","남성슈즈","아동슈즈"]
 
-categories.each do |category|
-  0.upto(1) do |i|
-    p = Post.new
-    p.user_id = 1
-    p.category = category
-    p.title = "#{category}집#{i} 이름"
-    p.content = "#{category}집#{i} 설명"
-    p.price = 25000
-    p.save
- end
-end
+#categories.each do |category|
+#  0.upto(1) do |i|
+#    p = Post.new
+#    p.user_id = 1
+#    p.category = category
+#    p.title = "#{category}집#{i} 이름"
+#    p.content = "#{category}집#{i} 설명"
+#    p.price = 25000
+#    p.image = File.open(File.join(Rails.root, 'shoes1.JPG'))
+#    p.save
+# end
+#end
+
+p = Post.new
+p.user_id = 1
+p.category = "여성슈즈"
+p.title = "로맨틱 웨지 샌들"
+p.content = "가볍고 편한 신발 어때요?"
+p.price = 19800
+p.image = File.open(File.join(Rails.root, 'shoes1.JPG'))
+p.save
+
+p = Post.new
+p.user_id = 1
+p.category = "여성슈즈"
+p.title = "폴린 키높이 로퍼(5cm)"
+p.content = "펀칭과 태슬장식이 클래식해요~!"
+p.price = 26900
+p.image = File.open(File.join(Rails.root, 'shoes2_re.jpg'))
+p.save
 
 u = User.new
 u.id_user = "admin"
