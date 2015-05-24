@@ -1,17 +1,28 @@
-<div>
-  
-  <span style="font-size:30px;"><%= @name %></span>
-  <span style="font-size:20px;">님, 회원가입을 환영합니다!</span><br>
-<br>
-<div style="border: 1px dotted black;">
-<h2>가입정보 확인</h2>
-아이디: <%= @id %><br>
-이름: <%= @name %><br>
-주소: <%= @addr %><br>
-휴대전화: <%= @phone %><br>
-이메일: <%= @email %><br>
-<br>
-</div>
-<br>
-  <a href="/jshoes/main">메인으로 돌아가기</a>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4 text-center">
+      <br>
+      <span style="font-size:30px;"><%= @name %></span>
+      <span style="font-size:20px;">님, 회원가입을 환영합니다!</span><br>
+     <br>
+     <br>
+     <div style="border: 1px dotted black;">
+          <h3 style="text-align:center;">가입정보 확인</h3>
+          <br>
+          아이디: <%= @id %><br>
+          이름: <%= @name %><br>
+          주소: <%= @addr %><br>
+          휴대전화: <%= @phone %><br>
+          이메일: <%= @email %><br>
+          <br>
+     </div>
+     <br>
+      <a href="/">메인으로 돌아가기</a> | <a href="/user/login">바로 로그인하기</a>
+
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
 </div>

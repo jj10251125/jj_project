@@ -1,6 +1,8 @@
 class JshoesController < ApplicationController
 
-http_basic_authenticate_with name: "admin", password: "secret", except: [:main, :shoes_category, :show ]
+before_action :login_check
+skip_before_action :login_check, :only => [:main, :shoes_category, :show, :review, :qna]
+#http_basic_authenticate_with name: "admin", password: "secret", except: [:main, :shoes_category, :show ]
 
   def main
     @posts = Post.all

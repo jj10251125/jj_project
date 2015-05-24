@@ -1,4 +1,8 @@
 class UserController < ApplicationController
+
+before_action :login_check
+skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_complete_page, :login, :login_complete, :logout_complete]
+
   def signup
   end
 

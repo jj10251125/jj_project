@@ -1,4 +1,11 @@
-<div class="panel">
+<div class="container">
+ 
+  <% if !flash[:alert].nil? %>
+  <div class="alert alert-danger">
+  <%= flash[:alert] %>
+  </div>
+  <% end %>
+
  <div class="row panel-body">
   
   <div class="col-xs-3">
