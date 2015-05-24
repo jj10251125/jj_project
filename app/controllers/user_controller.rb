@@ -16,7 +16,6 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
     if params[:password] == params[:retype_password]
       u.password = params[:password]
       if u.save
-       #flash[:alert] = "회원가입이 성공적으로 완료되었습니다."
         redirect_to "/user/signup_complete_page"
       else
         flash[:alert] = u.errors.values.flatten.join(' ')
@@ -49,7 +48,11 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
       redirect_to :back
     else
       session[:user_id] = user.id
-      flash[:alert] = "성공적으로 로그인하였습니다."
+      if session[:user_id] == 1
+         flash[:alert] = "관리자 기능으로 로그인하였습니다."
+      else
+         flash[:alert] = "성공적으로 로그인하였습니다."
+      end
       redirect_to "/"
     end
   end
