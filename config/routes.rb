@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'user/logout_complete'
   get 'jshoes/show/:id' => 'jshoes#show'
   get 'jshoes/review_show/:id' => 'jshoes#review_show'
+  get 'user/my_cart/:id' => 'user#my_cart'
   get 'jshoes/write'
   post 'jshoes/write_complete'
   get 'jshoes/edit/:id' => 'jshoes#edit'
@@ -26,6 +27,7 @@ Rails.application.routes.draw do
   post 'jshoes/review_comment_complete'
   get 'jshoes/delete_comment_complete/:id' => 'jshoes#delete_comment_complete'
   get 'user/my_cart'
+  post 'user/push_cart'
   get 'user/my_info'
   post 'user/edit_info'
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,7 +1,7 @@
 class JshoesController < ApplicationController
 
 before_action :login_check
-skip_before_action :login_check, :only => [:main, :shoes_category, :show, :review, :qna]
+skip_before_action :login_check, :only => [:main, :shoes_category, :show, :review]
 #http_basic_authenticate_with name: "admin", password: "secret", except: [:main, :shoes_category, :show ]
 
   def main
@@ -22,6 +22,10 @@ skip_before_action :login_check, :only => [:main, :shoes_category, :show, :revie
   
   def show
     @post = Post.find(params[:id])
+    if session[:user_id] != 1
+      u = User.find(session[:user_id])
+      u.post_id = params[:id]
+    end
   end
   
   def write
@@ -29,7 +33,7 @@ skip_before_action :login_check, :only => [:main, :shoes_category, :show, :revie
 
   def write_complete
     post = Post.new
- #   post.user_id = session[:user_id]
+    post.user_id = session[:user_id]
     post.category = params[:post_category]
     post.title = params[:post_title]
     post.content = params[:post_content]
@@ -112,9 +116,6 @@ skip_before_action :login_check, :only => [:main, :shoes_category, :show, :revie
     @comment_writer = User.where(id: session[:user_id])[0]
   end
 
-  def qna
-  end
-  
   def review_comment_complete
     comment = Comment.new
     comment.user_id = session[:user_id]

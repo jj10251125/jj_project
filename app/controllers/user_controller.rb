@@ -81,7 +81,30 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
     end
   end
 
+  def push_cart
+    product = Cart.new
+    product.post_id = params[:post_id]   
+    product.user_id = session[:user_id]
+    product.save
+
+    p = Post.find(params[:post_id])
+    p.cart_id = product.id
+    p.save
+
+    u = User.find(session[:user_id])
+    u.post_id = params[:post_id]
+    u.save
+ 
+    product = Cart.where(post_id: params[:post_id])[0] 
+    
+    flash[:alert] = "장바구니에 담았습니다."
+    redirect_to "/user/my_cart/#{product.post_id}"
+    
+  end
+
   def my_cart
+    @item = Post.where(id: params[:id])[0]
+ #   @item=Cart.where(user_id: session[:user_id])[0]
   end
 
   def my_info

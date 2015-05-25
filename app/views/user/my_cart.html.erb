@@ -1,0 +1,49 @@
+<div class="container">
+
+  <% if !flash[:alert].nil? %>
+  <div class="alert alert-danger">
+  <%= flash[:alert] %>
+  </div>
+  <% end %>
+
+ <div class="row panel-body">
+
+  <div class="col-xs-3">
+  </div>
+   <div class="col-xs-6">
+      <h3 style="text-align:center;">SHOPPING CART</h3><br>
+     <!-- <div class="panel panel-default">-->
+  
+ 
+            <table class="table">
+            <tr>
+              <td><label><input type="checkbox"></label></td>
+              <td>이미지</td>
+              <td>상품정보</td>
+              <td>판매가</td> 
+              <td>배송비</td>  
+            </tr>
+            <tr>
+              <td><label><input type="checkbox"></label></td>
+	      <td><img src="<%= @item.image_url(:thumb) %>"></td>
+              <td><br><br><br><br><%= @item.title %></td>
+              <td><br><br><br><br><%= @item.price %></td>
+              <td><br><br><br><br>2500</td>
+            </tr>
+            </table>
+            <hr>
+            <p style="text-align:right;"><a class="btn btn-default btn-sm" href="#" role="button">선택상품주문</a></p>
+      <!--
+      <hr>
+      이미지 상품정보 판매가
+      <hr>
+      <img src="<#%= @item.image_url(:thumb) %>">
+      <#%= @item.title %>
+      <#%= @item.price %>
+      -->
+  <!--</div>-->
+  <div class="col-xs-3">
+    </div>
+
+</div>
+
