@@ -22,7 +22,7 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
         redirect_to :back
       end
     else
-      flash[:alert] = "Password doesn't match."
+      flash[:alert] = "패스워드가 맞지 않습니다."
       redirect_to :back
     end
   end
@@ -81,4 +81,31 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
     end
   end
 
+  def my_cart
+  end
+
+  def my_info
+    @user = User.find(session[:user_id])
+  end
+  
+  def edit_info
+    u = User.find(session[:user_id])   
+    u.username = params[:username]
+    u.address = params[:address]
+    u.phone_number = params[:phone_number]
+    u.email = params[:email]
+    if params[:password] == params[:retype_password]
+      u.password = params[:password]
+      if u.save
+        flash[:alert] = "성공적으로 수정되었습니다."
+        redirect_to "/user/my_info"
+      else
+        flash[:alert] = u.errors.values.flatten.join(' ')
+        redirect_to :back
+      end
+    else
+      flash[:alert] = "패스워드가 맞지 않습니다."
+      redirect_to :back
+    end
+  end
 end

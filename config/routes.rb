@@ -25,6 +25,9 @@ Rails.application.routes.draw do
   post 'user/review_complete'
   post 'jshoes/review_comment_complete'
   get 'jshoes/delete_comment_complete/:id' => 'jshoes#delete_comment_complete'
+  get 'user/my_cart'
+  get 'user/my_info'
+  post 'user/edit_info'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

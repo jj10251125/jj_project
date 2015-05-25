@@ -1,0 +1,30 @@
+<div class="container">
+  <% if !flash[:alert].nil? %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4 text-center">
+      <h3 class="form-heading">회원정보변경</h3>
+
+      <form action="/user/edit_info" method="post">
+        <div class="well well-sm">ID : <%= @user.id_user %></div>
+        <p><input class="form-input" type="password" name="password" value="<%= @user.password %>"></p>
+        <p><input class="form-input" type="password" name="retype_password" value="<%= @user.password %>"></p>
+        <p><input class="form-input" type="username" name="username" value="<%= @user.username %>"></p>
+        <p><input class="form-input" type="address" name="address" value="<%= @user.address %>"></p>
+        <p><input class="form-input" type="phone_number" name="phone_number" value="<%= @user.phone_number %>"></p>
+        <p><input class="form-input" type="email" name="email" value="<%= @user.email%>"></p>
+       
+         <input class="btn btn-lg btn-success btn-block" type="submit" value="수정">
+      </form>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
+</div>
+
