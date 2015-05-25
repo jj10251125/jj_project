@@ -109,6 +109,10 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
  #   @item=Cart.where(user_id: session[:user_id])[0]
   end
 
+  def order_complete
+     flash[:alert] = "주문이 완료되었습니다."
+  end
+
   def my_info
     @user = User.find(session[:user_id])
   end
