@@ -103,7 +103,9 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
   end
 
   def my_cart
-    @item = Post.where(id: params[:id])[0]
+  #  @item = Post.where(id: params[:id])[0]
+     item = Cart.last
+     @item = item.posts[0]
  #   @item=Cart.where(user_id: session[:user_id])[0]
   end
 
