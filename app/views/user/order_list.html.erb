@@ -4,19 +4,32 @@
 <% @order.each do |order| %>
   <%= order.name %><br>
 <% end %>
- <h2 class="text-center">주문내역 조회</h2>
+ 
  <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-1">
     </div>
-    <div class="col-md-6">
+    <div class="col-md-10">
+    <br><br>
+    <span style="font-size:25px;"><strong>ORDER LIST</strong></span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:gray;font-size:13px;">회원님의 주문내역입니다.</span>
+    <hr>
+<div style="border:3px solid #c3c3c3; padding:10px;"><span style="color:blue;"><strong>[<%= @u.username %>]</strong></span>님이 쇼핑몰에서 주문한 내역입니다.</div>
+    <br>
       <table class="table">
-         <tr>배송정보</tr>
-         <tr>주문처리상태</tr>
+         <tr class="active">
+           <td>번호</td>
+           <td>상품명</td>
+           <td>결제금액</td>
+           <td>주문상세</td>
+           <td>배송현황</td>
+         </tr>
+         <tr>
+         </tr>
+         
          
       
       </table>  
     </div>
-    <div class="col-md-2">
+    <div class="col-md-1">
     </div>
  </div>
 

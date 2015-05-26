@@ -98,10 +98,10 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
         redirect_to :back
         
         else
-      product = Cart.new
-      product.post_id = params[:post_id]   
-      product.user_id = session[:user_id]
-      product.save
+        product = Cart.new
+        product.post_id = params[:post_id]   
+        product.user_id = session[:user_id]
+        product.save
 
       p = Post.find(params[:post_id])
       p.cart_id = product.id
@@ -128,6 +128,8 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
   end
   
   def order_list
+     
+     @u = User.where(id: session[:user_id])[0]
      @order = Order.where(user_id: session[:user_id])
   end
 
