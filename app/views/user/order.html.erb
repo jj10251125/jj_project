@@ -1,0 +1,39 @@
+<div class="container">
+  <% if !flash[:alert].nil? %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+  <% end %>
+
+  <h2 class="text-center">배송지 정보</h2>
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6">
+      <form action="/user/order_complete" method="post">
+      <table class="table table-bordered table-condensed">
+        <tr>
+          <td class="warning">받으시는 분</td>
+          <td><input type="text" name="name"></td>
+        </tr>
+        <tr>
+          <td class="warning">주소</td>
+          <td><input type="text" name="address" style="width:400px;"></td>
+        </tr>
+        <tr>
+          <td class="warning">휴대전화</td>
+          <td><input type="text" name="phone_number"></td>
+        </tr>
+        <tr>
+          <td class="warning">배송메시지</td> 
+          <td><input type="text" name="message" style="width:400px;"></td>
+        </tr>
+      </table>
+      <p style="text-align:center;"><input class="btn btn-default btn-lg" type="submit" value="결제하기"></p>
+      </form>
+    </div>
+    <div class="col-md-3">
+    </div>
+  </div>

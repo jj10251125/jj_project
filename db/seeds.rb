@@ -28,6 +28,9 @@ p.category = "여성슈즈"
 p.title = "로맨틱 웨지 샌들"
 p.content = "가볍고 편한 신발 어때요?"
 p.price = 19800
+p.color = "블랙(Black),베이지(Beige)"
+p.size = "220,225,230,235,240,245,250"
+p.point = "1%"
 p.image = File.open(File.join(Rails.root, 'shoes1.JPG'))
 p.save
 
@@ -37,6 +40,9 @@ p.category = "여성슈즈"
 p.title = "폴린 키높이 로퍼(5cm)"
 p.content = "펀칭과 태슬장식이 클래식해요~!"
 p.price = 26900
+p.color = "블랙(Black),화이트(white)"
+p.point = "2%"
+p.size = "220,225,230,235,240,245,250"
 p.image = File.open(File.join(Rails.root, 'shoes2_re.jpg'))
 p.save
 

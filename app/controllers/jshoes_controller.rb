@@ -2,7 +2,6 @@ class JshoesController < ApplicationController
 
 before_action :login_check
 skip_before_action :login_check, :only => [:main, :shoes_category, :show, :review]
-#http_basic_authenticate_with name: "admin", password: "secret", except: [:main, :shoes_category, :show ]
 
   def main
     @posts = Post.all
@@ -38,6 +37,8 @@ skip_before_action :login_check, :only => [:main, :shoes_category, :show, :revie
     post.title = params[:post_title]
     post.content = params[:post_content]
     post.price = params[:post_price]
+    post.color = params[:post_color]
+    post.size = params[:post_size]
     post.image = params[:image]
     if post.save
       flash[:alert] = "등록되었습니다."
@@ -66,6 +67,10 @@ skip_before_action :login_check, :only => [:main, :shoes_category, :show, :revie
     post.title = params[:post_title]
     post.content = params[:post_content]
     post.price = params[:post_price]
+    post.color = params[:post_color]
+    post.size = params[:post_size]
+    post.point = params[:post_point]
+
     if post.save
       flash[:alert] = "수정되었습니다."
       redirect_to "/jshoes/show/#{post.id}"

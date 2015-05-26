@@ -82,24 +82,42 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
   end
 
   def push_cart
-    product = Cart.new
-    product.post_id = params[:post_id]   
-    product.user_id = session[:user_id]
-    product.save
+    case params[:post_color]
+    when "essential"
+     flash[:alert] = "색상을 반드시 선택하셔야 합니다."
+     redirect_to :back
+    else
+      case params[:post_size]
+      when "essential"
+      flash[:alert] = "사이즈를 반드시 선택하셔야 합니다."
+      redirect_to :back
+      else
+        case params[:figure]
+        when "0"
+        flash[:alert] = "수량을 1이상 반드시 선택하셔야 합니다."
+        redirect_to :back
+        
+        else
+      product = Cart.new
+      product.post_id = params[:post_id]   
+      product.user_id = session[:user_id]
+      product.save
 
-    p = Post.find(params[:post_id])
-    p.cart_id = product.id
-    p.save
-
-    u = User.find(session[:user_id])
-    u.post_id = params[:post_id]
-    u.save
+      p = Post.find(params[:post_id])
+      p.cart_id = product.id
+      p.save
  
-    product = Cart.where(post_id: params[:post_id])[0] 
-    
-    flash[:alert] = "장바구니에 담았습니다."
-    redirect_to "/user/my_cart/#{product.post_id}"
-    
+      u = User.find(session[:user_id])
+      u.post_id = params[:post_id]
+      u.save
+
+      product = Cart.where(post_id: params[:post_id])[0]
+
+      flash[:alert] = "장바구니에 담았습니다."
+      redirect_to "/user/my_cart/#{product.post_id}"
+       end
+      end
+    end
   end
 
   def my_cart
@@ -108,9 +126,31 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
      @item = item.posts[0]
  #   @item=Cart.where(user_id: session[:user_id])[0]
   end
+  
+  def order_list
+     @order = Order.where(user_id: session[:user_id])
+  end
 
   def order_complete
-     flash[:alert] = "주문이 완료되었습니다."
+     o = Order.new
+     o.user_id = session[:user_id]
+     o.name = params[:name]
+     o.address = params[:address]
+     o.phone_number = params[:phone_number]
+     o.message = params[:message]
+     if o.save    
+        flash[:alert] = "주문이 완료되었습니다."
+        redirect_to "/user/order_complete_page"
+     else
+        flash[:alert] = o.errors.values.flatten.join(' ')
+        redirect_to :back
+     end
+  end
+
+  def order_complete_page
+  end
+
+  def order
   end
 
   def my_info

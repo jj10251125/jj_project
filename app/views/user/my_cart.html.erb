@@ -25,14 +25,16 @@
             </tr>
             <tr>
               <td><label><input type="checkbox"></label></td>
-	      <td><img src="<%= @item.image_url(:thumb) %>"></td>
-              <td><br><br><br><br><%= @item.title %></td>
-              <td><br><br><br><br><%= @item.price %></td>
-              <td><br><br><br><br>2500</td>
+	      <td><img src="<%= @item.image_url(:thumb) %>" width="82" height="82"></td>
+              <td><br><%= @item.title %></td>
+              <td><br><%= @item.price %></td>
+              <td><br>2500</td>
             </tr>
             </table>
             <hr>
-            <p style="text-align:right;"><a class="btn btn-default btn-sm" href="/user/order_complete" role="button">선택상품주문</a></p>
+            
+            <p style="text-align:right;"><a class="btn btn-default btn-sm" href="/user/order" role="button">선택상품주문</a></p>
+            
       </div> 
      <!--
       <hr>

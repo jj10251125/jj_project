@@ -30,7 +30,10 @@ Rails.application.routes.draw do
   post 'user/push_cart'
   get 'user/my_info'
   post 'user/edit_info'
-  get 'user/order_complete'
+  post 'user/order_complete'
+  get 'user/order_complete_page'
+  get 'user/order'
+  get 'user/order_list'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
