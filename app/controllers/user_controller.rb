@@ -121,21 +121,24 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
   end
 
   def my_cart
-  #  @item = Post.where(id: params[:id])[0]
      item = Cart.last
      @item = item.posts[0]
- #   @item=Cart.where(user_id: session[:user_id])[0]
   end
   
   def order_list
      
      @u = User.where(id: session[:user_id])[0]
      @order = Order.where(user_id: session[:user_id])
+    
+     @order.each do |order|    
+       order.total =  order.post.price + 2500
+     end
   end
 
   def order_complete
      o = Order.new
      o.user_id = session[:user_id]
+     o.post_id = params[:post_id]
      o.name = params[:name]
      o.address = params[:address]
      o.phone_number = params[:phone_number]
@@ -150,9 +153,18 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
   end
 
   def order_complete_page
+    
   end
 
   def order
+    @post_id = params[:post_id]
+  end
+
+  def order_cancel
+    order = Order.find(params[:id])
+    order.destroy 
+    flash[:alert] = "주문이 취소되었습니다."
+    redirect_to :back
   end
 
   def my_info

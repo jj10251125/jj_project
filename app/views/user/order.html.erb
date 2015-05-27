@@ -13,6 +13,7 @@
     </div>
     <div class="col-md-6">
       <form action="/user/order_complete" method="post">
+         <input type="hidden" name="post_id" value="<%= @post_id %>">
       <table class="table table-bordered table-condensed">
         <tr>
           <td class="warning">받으시는 분</td>

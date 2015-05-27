@@ -1,9 +1,9 @@
 <div class="container">
-
-
-<% @order.each do |order| %>
-  <%= order.name %><br>
-<% end %>
+ <% if !flash[:alert].nil? %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+  <% end %>
  
  <div class="row">
     <div class="col-md-1">
@@ -16,18 +16,27 @@
     <br>
       <table class="table">
          <tr class="active">
-           <td>번호</td>
            <td>상품명</td>
            <td>결제금액</td>
            <td>주문상세</td>
            <td>배송현황</td>
+           <td>취소</td>
          </tr>
+         <% @order.reverse.each do |order| %>
          <tr>
+           <td><%= order.post.title %></td>
+           <td><strong><%= order.total %>원</strong></td>
+           <td></td>
+           <td>주문처리중</td>
+           <td><a href="/user/order_cancel/<%= order.id %>">주문취소</a></td>
          </tr>
-         
-         
+         <% end %>
       
       </table>  
+      <br><br><hr>
+      <span style="color:gray;">* 주문상세의 조회 버튼을 클릭하시면, 주문상세 내역을 확인하실 수 있습니다.</span><br>
+      <span style="color:gray;">* 주문취소는 주문처리중 상태에서만 가능합니다.</span>
+
     </div>
     <div class="col-md-1">
     </div>
