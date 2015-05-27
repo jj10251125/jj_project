@@ -175,6 +175,7 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
         else
         @post_id = params[:post_id]
         @user = User.find(session[:user_id])
+        @product = Post.find(params[:post_id])
         end
       end
     end
