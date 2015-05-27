@@ -157,8 +157,27 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
   end
 
   def order
-    @post_id = params[:post_id]
-    @user = User.find(session[:user_id])
+    case params[:post_color]
+    when "essential"
+     flash[:alert] = "색상을 반드시 선택하셔야 합니다."
+     redirect_to :back
+    else
+      case params[:post_size]
+      when "essential"
+      flash[:alert] = "사이즈를 반드시 선택하셔야 합니다."
+      redirect_to :back
+      else
+        case params[:figure]
+        when "0"
+        flash[:alert] = "수량을 1이상 반드시 선택하셔야 합니다."
+        redirect_to :back
+
+        else
+        @post_id = params[:post_id]
+        @user = User.find(session[:user_id])
+        end
+      end
+    end
   end
 
   def order_cancel
