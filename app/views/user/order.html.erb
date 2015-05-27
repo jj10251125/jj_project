@@ -12,20 +12,52 @@
     <div class="col-md-3">
     </div>
     <div class="col-md-6">
+<strong><span style="color:gray; font-size:13px;">* 주문 상품(Products ordered)</span></strong><br><br>
+    <table class="table">
+     <tr class="active">
+          <td>구입 상품명</td>
+          <td>가격</td>
+     </tr>
+      <td></td>
+          <td></td>
+     <tr>
+     </tr>
+     <tr><td class="text-right">dfsdfsd</td></tr>
+    </table>
+
+<strong><span style="color:gray; font-size:13px;">* 주문자 정보
+(Purchaser inform ation)</span></strong><br><br>
+    <table class="table table-bordered table-condensed">
+      <tr>
+        <td class="warning">이름</td>
+        <td><%= @user.username %></td>
+      </tr>
+      <tr>
+        <td class="warning">연락처</td>
+        <td><%= @user.phone_number %></td>
+      </tr>
+      <tr>
+        <td class="warning">E-mail</td>
+ <td><%= @user.email %></td>
+      </tr>
+    </table>
+     <br>
+
+<strong><span style="color:gray; font-size:13px;">* 배송지 정보(Shipping Inform ation)</span></strong><br><br>
       <form action="/user/order_complete" method="post">
          <input type="hidden" name="post_id" value="<%= @post_id %>">
       <table class="table table-bordered table-condensed">
         <tr>
           <td class="warning">받으시는 분</td>
-          <td><input type="text" name="name"></td>
+          <td><input type="text" name="name" value="<%= @user.username %>"></td>
         </tr>
         <tr>
           <td class="warning">주소</td>
-          <td><input type="text" name="address" style="width:400px;"></td>
+          <td><input type="text" name="address" value="<%= @user.address %>" style="width:400px;"></td>
         </tr>
         <tr>
           <td class="warning">휴대전화</td>
-          <td><input type="text" name="phone_number"></td>
+          <td><input type="text" name="phone_number" value="<%= @user.phone_number %>"></td>
         </tr>
         <tr>
           <td class="warning">배송메시지</td> 

@@ -158,6 +158,7 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
 
   def order
     @post_id = params[:post_id]
+    @user = User.find(session[:user_id])
   end
 
   def order_cancel
