@@ -21,10 +21,10 @@ skip_before_action :login_check, :only => [:main, :shoes_category, :show, :revie
   
   def show
     @post = Post.find(params[:id])
-    if session[:user_id] != 1
-      u = User.find(session[:user_id])
-      u.post_id = params[:id]
-    end
+    #if session[:user_id] != 1
+    #  u = User.find(session[:user_id])
+    #  u.post_id = params[:id]
+    # end
   end
   
   def write
@@ -36,6 +36,7 @@ skip_before_action :login_check, :only => [:main, :shoes_category, :show, :revie
     post.category = params[:post_category]
     post.title = params[:post_title]
     post.content = params[:post_content]
+    post.point = params[:post_point]
     post.price = params[:post_price]
     post.color = params[:post_color]
     post.size = params[:post_size]

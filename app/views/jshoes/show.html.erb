@@ -39,14 +39,14 @@
        </tr>
        <tr>
           <td>적립금</td>
-          <td><%= @post.point %></td>
+          <td><%= @post.point %>%</td>
        </tr>
        <tr>
          <td><span style="font-size:13px;">색상(Color)</span></td>
          <td><select name="post_color">
           <option value="essential">--- 필수 옵션입니다 ---</option>
            <%= @post.color.split(",").each do |post| %>
-          <option value="color"><%= post %></option>
+          <option value="<%= post %>"><%= post %></option>
            <% end %>
           </select></td>
        </tr>
@@ -55,7 +55,7 @@
          <td><select name="post_size">
           <option value="essential">--- 필수 옵션입니다 ---</option>
            <%= @post.size.split(",").each do |post| %>
-          <option value="size"><%= post %></option>
+          <option value="<%= post %>"><%= post %></option>
            <% end %>         
          </select></td>
        </tr>

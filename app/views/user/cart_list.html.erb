@@ -1,0 +1,24 @@
+<div class="container">
+ <% if !flash[:alert].nil? %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+  <% end %>
+
+ <div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-10">
+    <br><br>
+    <span style="font-size:25px;"><strong>Shopping Cart</strong></span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:gray;font-size:13px;">고객님께서 장바구니에 담으신 상품입니다.</span>
+    <hr>
+    <br>
+      <table class="table">
+      </table>
+    </div>
+    <div class="col-md-1">
+    </div>
+ </div>
+</div>
+ 
+

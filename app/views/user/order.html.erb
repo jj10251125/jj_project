@@ -8,25 +8,27 @@
   <br>
   <br>
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-1">
     </div>
-    <div class="col-md-8">
+    <div class="col-md-10">
 <p style="text-align:right; color:gray; font-size:13px;">주문정보를 작성하신 후, 주문하기를 눌러주세요.</p>
 <strong><span style="color:gray; font-size:13px;">* 주문 상품(Products ordered)</span></strong><br><br>
     <table class="table">
      <tr class="active">
           <td></td>
           <td><strong>구입 상품명</strong></td>
+          <td><strong>수량</strong></td>
           <td><strong>가격</strong></td>
           <td><strong>적립금</strong></td>
      </tr>
      <tr>
       <td><img src="<%= @product.image %>" width="42" height="62"></td>
-      <td><span class="label label-info">국내/해외</span>&nbsp;<strong><%= @product.title %></strong><br>색상(COLOR) :</td>
-      <td><%= @product.price %>원</td>
-      <td><%= @product.point %></td>
+      <td><span class="label label-info">국내/해외</span>&nbsp;<strong><%= @product.title %></strong><br>색상(COLOR) : <%= @color %>, 사이즈(SIZE) : <%= @size %></td>
+      <td><%= @order_count %>개</td>
+      <td><strong><%= @product.price %>원</strong></td>
+      <td><%= @point_price %>원</td>
      </tr>
-     <tr><td class="text-right">dfsdfsd</td></tr>
+     <tr><td></td><td class="text-right"><strong>결제금액 : <%= @sum %>원 + 배송료 2500원 = <span style="color:Brown;"><%= @total_price %> 원</span> (적립금 <%= @total_point %>원)</strong></td><td></td><td></td><td></td></tr>
     </table>
 
 <strong><span style="color:gray; font-size:13px;">* 주문자 정보
@@ -50,6 +52,7 @@
 <strong><span style="color:gray; font-size:13px;">* 배송지 정보(Shipping Inform ation)</span></strong><br><br>
       <form action="/user/order_complete" method="post">
          <input type="hidden" name="post_id" value="<%= @post_id %>">
+         <input type="hidden" name="total_price" value="<%= @sum %>">
       <table class="table table-bordered table-condensed">
         <tr>
           <td class="warning"><strong>받으시는 분</strong></td>

@@ -63,6 +63,9 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
     redirect_to "/"
   end
 
+  def order_detail
+  end
+
   def review_write
   end
 
@@ -103,36 +106,41 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
         product.user_id = session[:user_id]
         product.save
 
-      p = Post.find(params[:post_id])
-      p.cart_id = product.id
-      p.save
+      #  p = Post.find(params[:post_id])
+      #  p.cart_id = product.id
+      #  p.save
  
-      u = User.find(session[:user_id])
-      u.post_id = params[:post_id]
-      u.save
+      #  u = User.find(session[:user_id])
+      #  u.post_id = params[:post_id]
+      #  u.save
 
-      product = Cart.where(post_id: params[:post_id])[0]
+        product = Cart.where(post_id: params[:post_id])[0]
 
-      flash[:alert] = "장바구니에 담았습니다."
-      redirect_to "/user/my_cart/#{product.post_id}"
-       end
+        flash[:alert] = "장바구니에 담았습니다."
+        redirect_to "/user/my_cart/#{product.post_id}"
+        end
       end
     end
   end
 
   def my_cart
-     item = Cart.last
-     @item = item.posts[0]
+    # item = Cart.last
+    # @item = item.posts[0]
   end
   
+  def cart_list
+    @u = User.where(id: session[:user_id])[0]
+    @product = Cart.where(user_id: session[:user_id])
+  end
+
   def order_list
      
      @u = User.where(id: session[:user_id])[0]
      @order = Order.where(user_id: session[:user_id])
     
-     @order.each do |order|    
-       order.total =  order.post.price + 2500
-     end
+   #  @order.each do |order|    
+   #    order.total =  order.post.price + 2500
+   #  end
   end
 
   def order_complete
@@ -143,6 +151,7 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
      o.address = params[:address]
      o.phone_number = params[:phone_number]
      o.message = params[:message]
+     o.total = params[:total_price]
      if o.save    
         flash[:alert] = "주문이 완료되었습니다."
         redirect_to "/user/order_complete_page"
@@ -176,6 +185,13 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
         @post_id = params[:post_id]
         @user = User.find(session[:user_id])
         @product = Post.find(params[:post_id])
+        @point_price = (@product.price * @product.point/100.to_f).to_i
+        @order_count = params[:figure]
+        @color = params[:post_color]
+        @size = params[:post_size]
+        @sum = @product.price * @order_count.to_i
+        @total_point = @point_price.to_i * @order_count.to_i
+        @total_price = @sum + 2500
         end
       end
     end

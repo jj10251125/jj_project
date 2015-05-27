@@ -42,14 +42,13 @@ ActiveRecord::Schema.define(version: 20150526052845) do
 
   create_table "posts", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "cart_id"
     t.string   "category"
     t.string   "color"
     t.string   "size"
     t.string   "title"
     t.text     "content"
     t.integer  "price"
-    t.string   "point"
+    t.integer  "point"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "image"
@@ -71,7 +70,6 @@ ActiveRecord::Schema.define(version: 20150526052845) do
     t.string   "address"
     t.integer  "phone_number"
     t.string   "email"
-    t.integer  "post_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end

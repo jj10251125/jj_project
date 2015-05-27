@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post 'user/signup_complete'
   get 'jshoes/shoes_category'
   get 'user/login'
+  get 'user/cart_list'
   post 'user/login_complete'
   get 'user/logout_complete'
   get 'jshoes/show/:id' => 'jshoes#show'
@@ -36,6 +37,7 @@ Rails.application.routes.draw do
   post 'user/order'
 #  get 'user/order'
   get 'user/order_list'
+  get 'user/order_detail'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

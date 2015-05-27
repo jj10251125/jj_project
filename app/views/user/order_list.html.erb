@@ -26,7 +26,12 @@
          <tr>
            <td><%= order.post.title %></td>
            <td><strong><%= order.total %>원</strong></td>
-           <td></td>
+           <td>
+              <form action="/user/order_detail" method="get">
+                 <input class="btn btn-default btn-sm" type="submit" value="조회">
+               
+              </form>
+           </td>
            <td>주문처리중</td>
            <td><a href="/user/order_cancel/<%= order.id %>">주문취소</a></td>
          </tr>
