@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   post 'jshoes/write_complete'
   get 'jshoes/edit/:id' => 'jshoes#edit'
   get 'user/order_cancel/:id' => 'user#order_cancel'
+  get 'user/cart_cancel/:id' => 'user#cart_cancel'
   get 'jshoes/edit_review/:id' => 'jshoes#edit_review'
   post 'jshoes/edit_complete'
   post 'jshoes/edit_review_complete'

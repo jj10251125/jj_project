@@ -104,6 +104,10 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
         product = Cart.new
         product.post_id = params[:post_id]   
         product.user_id = session[:user_id]
+        product.color = params[:post_color]
+        product.figure = params[:figure]
+        product.size = params[:post_size]
+
         product.save
 
       #  p = Post.find(params[:post_id])
@@ -134,7 +138,7 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
   end
   
   def cart_list
-    @u = User.where(id: session[:user_id])[0]
+ #   @u = User.where(id: session[:user_id])[0]
     @product = Cart.where(user_id: session[:user_id])
   end
 
@@ -202,6 +206,13 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
     end
   end
 
+  def cart_cancel
+    cart = Cart.find(params[:id])
+    cart.destroy
+    flash[:alert] = "삭제되었습니다."
+    redirect_to :back
+
+  end
   def order_cancel
     order = Order.find(params[:id])
     order.destroy 
