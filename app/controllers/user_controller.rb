@@ -6,6 +6,16 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
   def signup
   end
 
+  def cart_all_delete
+    @product = Cart.where(user_id: session[:user_id])
+    @product.each do |product|    
+       product.destroy
+    end
+
+    flash[:alert] = "장바구니를 비웠습니다."
+    redirect_to :back
+  end
+
   def signup_complete
     u = User.new
     u.id_user = params[:id_user]

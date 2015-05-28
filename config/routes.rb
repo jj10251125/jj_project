@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'user/signup'
   get '/:category' => 'jshoes#shoes_category'
  # get 'jshoes/main'
+  get 'user/cart_all_delete'
   get 'jshoes/main'
   root 'jshoes#main'
   get 'user/signup_complete_page'

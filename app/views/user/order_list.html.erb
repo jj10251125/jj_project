@@ -16,24 +16,24 @@
     <br>
       <table class="table">
          <tr class="active">
-           <td>상품명</td>
-           <td>결제금액</td>
-           <td>주문상세</td>
-           <td>배송현황</td>
-           <td>취소</td>
+           <td align=center>상품명</td>
+           <td align=center>결제금액</td>
+           <td align=center>주문상세</td>
+           <td align=center>배송현황</td>
+           <td align=center>취소</td>
          </tr>
          <% @order.reverse.each do |order| %>
          <tr>
            <td><%= order.post.title %></td>
-           <td><strong><%= order.total %>원</strong></td>
-           <td>
+           <td align=center><strong><%= order.total %>원</strong></td>
+           <td align=center>
               <form action="/user/order_detail/<%= order.id %>" method="post">
                  <input class="btn btn-default btn-sm" type="submit" value="조회">
                
               </form>
            </td>
-           <td>주문처리중</td>
-           <td><a href="/user/order_cancel/<%= order.id %>">주문취소</a></td>
+           <td align=center>주문처리중</td>
+           <td align=center><a href="/user/order_cancel/<%= order.id %>">주문취소</a></td>
          </tr>
          <% end %>
       

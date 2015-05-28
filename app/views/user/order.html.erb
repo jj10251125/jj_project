@@ -1,3 +1,4 @@
+
 <div class="container">
   <% if !flash[:alert].nil? %>
   <div class="alert alert-danger">
@@ -28,29 +29,29 @@
       <td align=center><strong><%= @product.price %>원</strong></td>
       <td align=center><%= @point_price %>원</td>
      </tr>
-     <tr><td align=right colspan=5><strong>결제금액 : <%= @sum %>원 + 배송료 2500원 = <span style="color:Brown;"><%= @total_price %> 원</span> (적립금 <%= @total_point %>원)</strong></td></tr>
+     <tr><td align=right colspan=5><strong>결제금액 : <%= @sum %>원 + 배송료 2500원 = <span style="color:Brown;"><%= @total_price %>원</span> (적립금 <%= @total_point %>원)</strong></td></tr>
     </table>
 
 <strong><span style="color:gray; font-size:13px;">* 주문자 정보
 (Purchaser inform ation)</span></strong><br><br>
     <table class="table table-bordered table-condensed">
       <tr>
-        <td class="warning"><strong>이름</strong></td>
-        <td><%= @user.username %></td>
+        <td class="warning" align=center width=100><strong>이름</strong></td>
+        <td>&nbsp;<%= @user.username %></td>
       </tr>
       <tr>
-        <td class="warning"><strong>연락처</strong></td>
-        <td><%= @user.phone_number %></td>
+        <td class="warning" align=center><strong>연락처</strong></td>
+        <td>&nbsp;<%= @user.phone_number %></td>
       </tr>
       <tr>
-        <td class="warning"><strong>E-mail</strong></td>
- <td><%= @user.email %></td>
+        <td class="warning" align=center><strong>E-mail</strong></td>
+        <td>&nbsp;<%= @user.email %></td>
       </tr>
     </table>
      <br>
 
 <strong><span style="color:gray; font-size:13px;">* 배송지 정보(Shipping Inform ation)</span></strong><br><br>
-      <form action="/user/order_complete" method="post">
+     <form action="/user/order_complete" method="post">
          <input type="hidden" name="post_id" value="<%= @post_id %>">
          <input type="hidden" name="total_price" value="<%= @sum %>">
          <input type="hidden" name="color" value="<%= @color %>">
@@ -59,23 +60,24 @@
          <input type="hidden" name="total_point" value="<%= @total_point %>">
       <table class="table table-bordered table-condensed">
         <tr>
-          <td class="warning"><strong>받으시는 분</strong></td>
+          <td class="warning" align=center width=100><strong>받으시는 분</strong></td>
           <td><input type="text" name="name" value="<%= @user.username %>"></td>
         </tr>
         <tr>
-          <td class="warning"><strong>주소</strong></td>
+          <td class="warning" align=center><strong>주소</strong></td>
           <td><input type="text" name="address" value="<%= @user.address %>" style="width:400px;"></td>
         </tr>
         <tr>
-          <td class="warning"><strong>휴대전화</strong></td>
+          <td class="warning" align=center><strong>휴대전화</strong></td>
           <td><input type="text" name="phone_number" value="<%= @user.phone_number %>"></td>
         </tr>
         <tr>
-          <td class="warning"><strong>배송메시지</strong></td> 
+          <td class="warning" align=center><strong>배송메시지</strong></td> 
           <td><input type="text" name="message" style="width:400px;"></td>
         </tr>
       </table>
       <p style="text-align:center;"><input class="btn btn-default btn-lg" type="submit" value="주문하기"></p>
+
       </form>
     </div>
     <div class="col-md-1">
