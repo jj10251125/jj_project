@@ -6,6 +6,10 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
   def signup
   end
 
+  def info_check
+    @user = User.find(session[:user_id])
+  end
+
   def cart_all_delete
     @product = Cart.where(user_id: session[:user_id])
     @product.each do |product|    
@@ -235,6 +239,17 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
     redirect_to :back
   end
 
+  def check
+    password = params[:password]
+    @user = User.find(session[:user_id])
+    if password != @user.password
+      flash[:alert] = "비밀번호가 맞지 않습니다."
+      redirect_to :back
+    else
+      redirect_to "/user/my_info"
+    end
+  end
+
   def my_info
     @user = User.find(session[:user_id])
   end
@@ -249,13 +264,13 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
       u.password = params[:password]
       if u.save
         flash[:alert] = "성공적으로 수정되었습니다."
-        redirect_to "/user/my_info"
+        redirect_to "/"
       else
         flash[:alert] = u.errors.values.flatten.join(' ')
         redirect_to :back
       end
     else
-      flash[:alert] = "패스워드가 맞지 않습니다."
+      flash[:alert] = "비밀번호가 맞지 않습니다."
       redirect_to :back
     end
   end

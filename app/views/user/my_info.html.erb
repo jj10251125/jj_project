@@ -13,8 +13,8 @@
 
       <form action="/user/edit_info" method="post">
         <div class="well well-sm">ID : <%= @user.id_user %></div>
-        <p><input class="form-input" type="password" name="password" value="<%= @user.password %>"></p>
-        <p><input class="form-input" type="password" name="retype_password" value="<%= @user.password %>"></p>
+        <p><input class="form-input" type="password" name="password" placeholder="비밀번호 설정"></p>
+        <p><input class="form-input" type="password" name="retype_password" placeholder="비밀번호 재설정"></p>
         <p><input class="form-input" type="username" name="username" value="<%= @user.username %>"></p>
         <p><input class="form-input" type="address" name="address" value="<%= @user.address %>"></p>
         <p><input class="form-input" type="phone_number" name="phone_number" value="<%= @user.phone_number %>"></p>

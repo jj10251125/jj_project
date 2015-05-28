@@ -29,10 +29,10 @@
            <td>kkkkkkk</td><#% end %> -->
            <td align=center><a href="/jshoes/show/<%= product.post_id %>"><img src="<%= product.post.image %>" width="60" height="70"></a></td>
            <td><a href="/jshoes/show/<%= product.post_id %>"><%= product.post.title %></a><br>색상 : <%= product.color %>, 사이즈 : <%= product.size %></td>
-           <td align=center><%= product.figure %></td>
-           <td align=center><strong><%= product.post.price %>원</strong></td>
-           <td align=center>2,500원</td>
-           <td align=center>
+           <td align=center><br><%= product.figure %></td>
+           <td align=center><br><strong><%= product.post.price %>원</strong></td>
+           <td align=center><br>2,500원</td>
+           <td align=center><br>
               <form action="/user/cart_cancel/<%= product.id %>" method="get">
                  <input class="btn btn-default btn-sm" type="submit" value="삭제">
               </form>
