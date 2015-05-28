@@ -64,6 +64,8 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
   end
 
   def order_detail
+    @order = Order.find(params[:id])
+    @u = User.find(session[:user_id])
   end
 
   def review_write
@@ -161,6 +163,10 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
      o.phone_number = params[:phone_number]
      o.message = params[:message]
      o.total = params[:total_price]
+     o.size = params[:size]
+     o.color = params[:color]
+     o.figure = params[:order_count]
+     o.point = params[:total_point]
      if o.save    
         flash[:alert] = "주문이 완료되었습니다."
         redirect_to "/user/order_complete_page"
@@ -171,7 +177,6 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
   end
 
   def order_complete_page
-    
   end
 
   def order

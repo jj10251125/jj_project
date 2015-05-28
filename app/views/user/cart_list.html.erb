@@ -16,23 +16,23 @@
       <table class="table">
 
          <tr class="active">
-           <td>사진</td>
+           <td align=center>사진</td>
            <td>상품명</td>
-           <td>수량</td>
-           <td>가격</td>
-           <td>배송비</td>
-           <td>취소</td>
+           <td align=center>수량</td>
+           <td align=center>가격</td>
+           <td align=center>배송비</td>
+           <td align=center>취소</td>
          </tr>
          <% @product.reverse.each do |product| %>
          <tr>
            <!--<#% if (product.id).nil? %>
            <td>kkkkkkk</td><#% end %> -->
-           <td><a href="/jshoes/show/<%= product.post_id %>"><img src="<%= product.post.image %>" width="60" height="60"></a></td>
+           <td align=center><a href="/jshoes/show/<%= product.post_id %>"><img src="<%= product.post.image %>" width="60" height="70"></a></td>
            <td><a href="/jshoes/show/<%= product.post_id %>"><%= product.post.title %></a><br>색상 : <%= product.color %>, 사이즈 : <%= product.size %></td>
-           <td><%= product.figure %></td>
-           <td><strong><%= product.post.price %>원</strong></td>
-           <td>2,500원</td>
-           <td>
+           <td align=center><%= product.figure %></td>
+           <td align=center><strong><%= product.post.price %>원</strong></td>
+           <td align=center>2,500원</td>
+           <td align=center>
               <form action="/user/cart_cancel/<%= product.id %>" method="get">
                  <input class="btn btn-default btn-sm" type="submit" value="삭제">
               </form>

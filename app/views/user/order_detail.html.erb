@@ -1,1 +1,69 @@
-kkkkkk
+<div class="container">
+
+ <div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-10">
+    <br><br>
+    <span style="font-size:25px;"><strong>주문상세내역</strong></span>
+    <hr>
+    <br>
+    <p><strong><span style="color:DarkBlue; font-size:13px;">주문자정보</span></strong></p>
+      <table class="table table-bordered table-condensed">
+         <tr>
+           <td class="active" align=center width=100><strong>주문자</strong></td>
+           <td>&nbsp;<%= @u.username %></td>
+         </tr>
+        
+      </table>
+      <br>
+   <p> <strong><span style="color:DarkBlue; font-size:13px;">배송지정보</span></strong></p>
+    <table class="table table-bordered table-condensed">
+      <tr>
+        <td class="active" align=center><strong>수취인</strong></td>
+        <td>&nbsp;<%= @order.name %></td>
+      </tr>
+      <tr>
+        <td class="active" align=center><strong>연락처</strong></td>
+        <td>&nbsp;<%= @order.phone_number %></td>
+      </tr>
+      <tr>
+        <td class="active" align=center><strong>주소</strong></td>
+        <td>&nbsp;<%= @order.address %></td>
+      </tr>
+      <tr>
+        <td class="active" align=center width=100><strong>배송메세지</strong></td>
+        <td>&nbsp;<%= @order.message %></td>
+      </tr>
+    </table>
+     <br>
+   <p><strong><span style="color:DarkBlue; font-size:13px;">주문상품정보</span></strong></p>
+   <table class="table table-bordered table-condensed">
+      <tr>
+        <td colspan=2 class="active" align=center><strong>주문상품정보</strong></td>
+        <td class="active" align=center><strong>수량</strong></td>
+        <td class="active" align=center><strong>가격</strong></td>
+        <td class="active" align=center><strong>적립</strong></td>
+      </tr>
+      <tr>
+        <td align=center><img src="<%= @order.post.image %>" width=50 height=60></td>
+        <td> <%= @order.post.title %> <br>
+            <span class="label label-danger">옵션</span> 색상 : <%= @order.color %>, 사이즈 : <%= @order.size %>
+        </td>
+        <td valign=middle align=center><br><%= @order.figure %></td>
+        <td valign=middle align=center><br><span style="color:Coral"><strong><%= @order.post.price %>원</strong></span></td>
+        <td valign=middle align=center><br><%= @order.point %></td>
+      </tr>
+      <tr>
+        <td colspan="5" class="active" align=right><strong>총 결제금액 = <%= @order.total %> 원</strong></td>
+      </tr>
+   </table>
+
+
+    </div>
+    <div class="col-md-1">
+    </div>
+ </div>
+
+</div>
+    

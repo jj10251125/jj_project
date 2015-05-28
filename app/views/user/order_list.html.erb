@@ -27,7 +27,7 @@
            <td><%= order.post.title %></td>
            <td><strong><%= order.total %>원</strong></td>
            <td>
-              <form action="/user/order_detail" method="get">
+              <form action="/user/order_detail/<%= order.id %>" method="post">
                  <input class="btn btn-default btn-sm" type="submit" value="조회">
                
               </form>

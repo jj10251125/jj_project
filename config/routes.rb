@@ -38,7 +38,7 @@ Rails.application.routes.draw do
   post 'user/order'
 #  get 'user/order'
   get 'user/order_list'
-  get 'user/order_detail'
+  post 'user/order_detail/:id' => 'user#order_detail'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

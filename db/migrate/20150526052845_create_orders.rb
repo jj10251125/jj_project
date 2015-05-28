@@ -5,9 +5,13 @@ class CreateOrders < ActiveRecord::Migration
       t.integer :post_id
       t.string :name
       t.string :address
-      t.integer :phone_number
+      t.string :phone_number
       t.string :message
       t.integer :total
+      t.string :color
+      t.integer :figure
+      t.string :size
+      t.integer :point
 
       t.timestamps null: false
     end
