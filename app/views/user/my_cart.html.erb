@@ -1,3 +1,17 @@
+<script type="text/javascript">
+  function go(){
+    var f=document.formName;
+    f.action="/"
+    f.submit();
+  }
+  function cart(){
+    var f=document.formName;
+    f.action="/user/cart_list"
+    f.submit();
+  }
+</script>
+
+
 <div class="container">
 
   <% if !flash[:alert].nil? %>
@@ -11,42 +25,20 @@
   <div class="col-xs-3">
   </div>
    <div class="col-xs-6">
-      <h3 style="text-align:center;">SHOPPING CART</h3><br>
-     <!-- <div class="panel panel-default">-->
-  
- 
-            <table class="table">
-            <tr>
-              <td><label><input type="checkbox"></label></td>
-              <td>이미지</td>
-              <td>상품정보</td>
-              <td>판매가</td> 
-              <td>배송비</td>  
-            </tr>
-            <tr>
-              <td><label><input type="checkbox"></label></td>
-	      <td><img src="<%= @item.image_url(:thumb) %>" width="82" height="82"></td>
-              <td><br><%= @item.title %></td>
-              <td><br><%= @item.price %></td>
-              <td><br>2500</td>
-            </tr>
-            </table>
-            <hr>
-            
-            <p style="text-align:right;"><a class="btn btn-default btn-sm" href="/user/order" role="button">선택상품주문</a></p>
-            
-      </div> 
-     <!--
-      <hr>
-      이미지 상품정보 판매가
-      <hr>
-      <img src="<#%= @item.image_url(:thumb) %>">
-      <#%= @item.title %>
-      <#%= @item.price %>
-      -->
-  <!--</div>-->
-  <div class="col-xs-3">
-    </div>
+     <!-- <h3 style="text-align:center;">-->
+      <div style="border:2px solid #c3c3c3; padding:30px; text-align:center;">
+     <%= @item.title %><br>
+     상품이 장바구니에 담겼습니다.<br>
+     <strong>지금 확인하시겠습니까?</strong>
+     <br><br>
+     <form name="formName" method="get">
+       <input type="button" value="> 예" style="background-Color:black; color:White; border-radius:5px;" onclick="cart();">&nbsp;&nbsp;
+       <input type="button" value="계속쇼핑" style="background-Color:white; border-radius:5px;" onclick="go();">
+     
+     </form>
+      </div>
 
-</div>
-
+   </div>
+   
+  </div>
+</div> 
