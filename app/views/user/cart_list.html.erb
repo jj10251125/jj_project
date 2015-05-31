@@ -1,3 +1,22 @@
+<!--<script type="text/javascript">
+var check = false;
+function CheckAll(){
+  var chk=document.getElementsByName("del_unit[]");
+ if(check == false){
+    check=true;
+    for(var i=0; i<chk.length; i++){
+       chk[i].checked = true;
+    }
+ }else{
+    for(var i=0; i<chk.length; i++){
+       chk[i].checked = false;
+    }
+ }
+}
+</script>
+-->
+
+
 <div class="container">
  <% if !flash[:alert].nil? %>
   <div class="alert alert-danger">
@@ -16,22 +35,34 @@
       <table class="table">
 
          <tr class="active">
+   <!--        <td align=center><input type="checkbox" name="checkall" onclick="javascript:CheckAll()"></td> -->
            <td align=center>사진</td>
-           <td>상품명</td>
+           <td align=center>상품명</td>
            <td align=center>수량</td>
            <td align=center>가격</td>
            <td align=center>배송비</td>
+           <td align=center>주문</td>
            <td align=center>취소</td>
          </tr>
          <% @product.reverse.each do |product| %>
          <tr>
            <!--<#% if (product.id).nil? %>
            <td>kkkkkkk</td><#% end %> -->
+      <!--  <td align=center><input type="checkbox" id="del_id" name="del_unit[]"></td>-->
            <td align=center><a href="/jshoes/show/<%= product.post_id %>"><img src="<%= product.post.image %>" width="60" height="70"></a></td>
            <td><a href="/jshoes/show/<%= product.post_id %>"><%= product.post.title %></a><br>색상 : <%= product.color %>, 사이즈 : <%= product.size %></td>
            <td align=center><br><%= product.figure %></td>
            <td align=center><br><strong><%= product.post.price %>원</strong></td>
            <td align=center><br>2,500원</td>
+           <td align=center><br>
+              <form action="/user/order" method="post">
+                 <input type="hidden" name="post_id" value="<%= product.post_id %>">
+                 <input type="hidden" name="post_color" value="<%= product.color %>">
+                 <input type="hidden" name="post_size" value="<%= product.size %>">
+                 <input type="hidden" name="figure" value="<%= product.figure %>">
+                 <input class="btn btn-default btn-sm" type="submit" value="주문">
+              </form>
+           </td>
            <td align=center><br>
               <form action="/user/cart_cancel/<%= product.id %>" method="get">
                  <input class="btn btn-default btn-sm" type="submit" value="삭제">

@@ -18,7 +18,11 @@ skip_before_action :login_check, :only => [:main, :shoes_category, :show, :revie
     end
     @posts = Post.where(category: @category)
   end
-  
+ 
+  def order_confirm
+    @order = Order.all
+  end
+ 
   def show
     @post = Post.find(params[:id])
     #if session[:user_id] != 1

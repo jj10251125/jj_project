@@ -1,0 +1,41 @@
+<div class="container">
+ <div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-10">
+    <br><br>
+    <span style="font-size:25px;"><strong>고객 주문 확인</strong></span>
+    <hr>
+    <br>
+      <table class="table table-condensed">
+         <tr class="active">
+           <td align=center>고객 id</td>
+           <td align=center>고객명</td>
+           <td align=center>상품명</td>
+           <td align=center>결제금액</td>
+           <td align=center>주문상세</td>
+         </tr>
+         <% @order.reverse.each do |order| %>
+         <tr>
+           <td align=center><%= order.user.id_user %></td>
+           <td align=center><%= order.user.username %>님</td>
+           <td align=center><%= order.post.title %></td>
+           <td align=center><%= order.total %>원</td>
+           <td align=center>
+              <form action="/user/order_detail/<%= order.id %>" method="post">
+                 <input class="btn btn-default btn-sm" type="submit" value="조회">
+
+              </form>
+           </td>
+         </tr>
+         <% end %>
+
+      </table>
+      
+    </div>
+    <div class="col-md-1">
+    </div>
+ </div>
+
+</div>
+

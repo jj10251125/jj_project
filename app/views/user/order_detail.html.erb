@@ -12,7 +12,7 @@
       <table class="table table-bordered table-condensed">
          <tr>
            <td class="active" align=center width=100><strong>주문자</strong></td>
-           <td>&nbsp;<%= @u.username %></td>
+           <td>&nbsp;<%= @u %></td>
          </tr>
         
       </table>
@@ -55,7 +55,7 @@
         <td valign=middle align=center><br><%= @order.point %></td>
       </tr>
       <tr>
-        <td colspan="5" class="active" align=right><strong>총 결제금액 = <%= @order.total %> 원</strong></td>
+        <td colspan="5" class="active" align=right><strong>총 결제금액(배송비 포함) = <%= @order.total %> 원</strong></td>
       </tr>
    </table>
 

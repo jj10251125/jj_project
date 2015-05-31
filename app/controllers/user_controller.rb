@@ -79,7 +79,8 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
 
   def order_detail
     @order = Order.find(params[:id])
-    @u = User.find(session[:user_id])
+    #@u = User.find(session[:user_id])
+    @u = @order.user.username
   end
 
   def review_write
