@@ -21,35 +21,11 @@ p.save
 
 p = Post.new
 p.user_id = 1
-p.category = "아동슈즈"
-p.title = "반스 올드 스쿨"
-p.content = "패셔너블한 반스 운동화"
-p.price = 140000
-p.color = "남색(Navy),블랙(Black),화이트(White)"
-p.point = 5
-p.size = "170,180,190,200,210,220"
-p.image = File.open(File.join(Rails.root, 'k_9.jpg'))
-p.save
-
-p = Post.new
-p.user_id = 1
-p.category = "남성슈즈"
-p.title = "아디다스 아딜렛"
-p.content = "익숙한 삼선슬리퍼"
-p.price = 37000
-p.color = "남색(Navy),블랙(Black),화이트(White)"
-p.point = 2
-p.size = "250,255,260,265,270,275,280,285,290"
-p.image = File.open(File.join(Rails.root, 'm_10.jpg'))
-p.save
-
-p = Post.new
-p.user_id = 1
 p.category = "여성슈즈"
 p.title = "폴린 키높이 로퍼(5cm)"
 p.content = "펀칭과 태슬장식이 클래식해요~!"
 p.price = 26900
-p.color = "블랙(Black),화이트(White)"
+p.color = "블랙(Black),화이트(white)"
 p.point = 1
 p.size = "220,225,230,235,240,245,250"
 p.image = File.open(File.join(Rails.root, 'w_2.JPG'))
@@ -61,22 +37,10 @@ p.category = "여성슈즈"
 p.title = "레이딧"
 p.content = "봄컬러로 무장한 예쁜 스틸레토힐"
 p.price = 32500
-p.color = "분홍(Pink),베이지(Beige),빨강(Red),블랙(Black),화이트(White)"
+p.color = "블랙(Black),화이트(white)"
 p.point = 2
 p.size = "220,225,230,235,240,245,250"
 p.image = File.open(File.join(Rails.root, 'w_4.JPG'))
-p.save
-
-p = Post.new
-p.user_id = 1
-p.category = "남성슈즈"
-p.title = "버켄스탁 아리조나"
-p.content = "트랜디하고 스타일리쉬한 슬리퍼"
-p.price = 113000
-p.color = "갈색(Brown),남색(Navy),블랙(Black)"
-p.point = 5
-p.size = "250,255,260,265,270,275,280,285,290"
-p.image = File.open(File.join(Rails.root, 'm_2.jpg'))
 p.save
 
 p = Post.new
@@ -85,7 +49,7 @@ p.category = "여성슈즈"
 p.title = "스터린"
 p.content = "편안한 착화감에 두번 놀라는 샌들힐"
 p.price = 32500
-p.color = "블랙(Black),빨강(Red),화이트(white)"
+p.color = "블랙(Black),화이트(white)"
 p.point = 2
 p.size = "220,225,230,235,240,245,250"
 p.image = File.open(File.join(Rails.root, 'w_6.JPG'))
@@ -94,25 +58,25 @@ p.save
 p = Post.new
 p.user_id = 1
 p.category = "여성슈즈"
-p.title = "아디다스 이큅먼트"
-p.content = "인기많은 운동하기 좋은 이큅먼트"
-p.price = 110000
-p.color = "남색(Navy),블랙(Black),화이트(White)"
+p.title = "버켄스탁 오데사"
+p.content = "신으면 시원한 독특한 코르크 제질의 버켄스탁"
+p.price = 119000
+p.color = "블랙(Black),화이트(white)"
 p.point = 5
 p.size = "220,225,230,235,240,245,250"
-p.image = File.open(File.join(Rails.root, 'w_8.JPG'))
+p.image = File.open(File.join(Rails.root, 'w_7.JPG'))
 p.save
 
 p = Post.new
 p.user_id = 1
-p.category = "아동슈즈"
-p.title = "아디다스 아크와 9 I"
-p.content = "어린이들이 신기 편한 아디다스 샌들"
-p.price = 113000
-p.color = "갈색(Brown),남색(Navy),블랙(Black),초록(Green)"
+p.category = "여성슈즈"
+p.title = "아디다스 이큅먼트"
+p.content = "인기많은 운동하기 좋은 이큅먼트"
+p.price = 110000
+p.color = "블랙(Black),화이트(white)"
 p.point = 5
-p.size = "170,180,190,200,210,220"
-p.image = File.open(File.join(Rails.root, 'k_2.jpg'))
+p.size = "220,225,230,235,240,245,250"
+p.image = File.open(File.join(Rails.root, 'w_8.JPG'))
 p.save
 
 p = Post.new
@@ -165,30 +129,6 @@ p.save
 
 p = Post.new
 p.user_id = 1
-p.category = "여성슈즈"
-p.title = "버켄스탁 오데사"
-p.content = "신으면 시원한 독특한 코르크 제질의 버켄스탁"
-p.price = 119000
-p.color = "갈색(Brown),블랙(Black),화이트(white)"
-p.point = 5
-p.size = "220,225,230,235,240,245,250"
-p.image = File.open(File.join(Rails.root, 'w_7.JPG'))
-p.save
-
-p = Post.new
-p.user_id = 1
-p.category = "아동슈즈"
-p.title = "나이키 플렉스 익스피리언스 엘티알"
-p.content = "찍찍이로 신고 벗기 편한 나이키 운동화"
-p.price = 70000
-p.color = "블랙(Black),베이지(Beige)"
-p.point = 4
-p.size = "170,180,190,200,210,220"
-p.image = File.open(File.join(Rails.root, 'k_8.jpg'))
-p.save
-
-p = Post.new
-p.user_id = 1
 p.category = "남성슈즈"
 p.title = "컨버스 척 테일러 올 스타 '70"
 p.content = "전 세계적인 농구화의 대명사 "
@@ -197,6 +137,18 @@ p.color = "블랙(Black),베이지(Beige)"
 p.point = 4
 p.size = "250,255,260,265,270,275,280,285,290"
 p.image = File.open(File.join(Rails.root, 'm_8.jpg'))
+p.save
+
+p = Post.new
+p.user_id = 1
+p.category = "남성슈즈"
+p.title = "아디다스 아딜렛"
+p.content = "익숙한 삼선슬리퍼"
+p.price = 37000
+p.color = "블랙(Black),화이트(white)"
+p.point = 2
+p.size = "250,255,260,265,270,275,280,285,290"
+p.image = File.open(File.join(Rails.root, 'm_10.jpg'))
 p.save
 
 p = Post.new
@@ -221,6 +173,18 @@ p.color = "블랙(Black),화이트(white)"
 p.size = "170,180,190,200,210,220"
 p.point = 5
 p.image = File.open(File.join(Rails.root, 'k_1.jpg'))
+p.save
+
+p = Post.new
+p.user_id = 1
+p.category = "아동슈즈"
+p.title = "아디다스 아크와 9 I"
+p.content = "어린이들이 신기 편한 아디다스 샌들"
+p.price = 113000
+p.color = "블랙(Black),갈색(Brown)"
+p.point = 5
+p.size = "170,180,190,200,210,220"
+p.image = File.open(File.join(Rails.root, 'k_2.jpg'))
 p.save
 
 p = Post.new
@@ -265,7 +229,7 @@ p.category = "여성슈즈"
 p.title = "차코 제트2 우나윕"
 p.content = "여름에 신기 시원한 차코제품"
 p.price = 62000
-p.color = "갈색(Brown),블랙(Black),빨강(Red),화이트(White)"
+p.color = "블랙(Black),화이트(white)"
 p.point = 3
 p.size = "220,225,230,235,240,245,250"
 p.image = File.open(File.join(Rails.root, 'w_10.JPG'))
@@ -277,7 +241,7 @@ p.category = "여성슈즈"
 p.title = "리티오"
 p.content = "예쁜 LED 불빛이 반짝 반짝 빛나는 슬리퍼"
 p.price = 32000
-p.color = "빨강(Red),블랙(Black),화이트(White)"
+p.color = "블랙(Black),화이트(white)"
 p.point = 1
 p.size = "220,225,230,235,240,245,250"
 p.image = File.open(File.join(Rails.root, 'w_11.JPG'))
@@ -295,6 +259,17 @@ p.point = 5
 p.image = File.open(File.join(Rails.root, 'm_1.jpg'))
 p.save
 
+p = Post.new
+p.user_id = 1
+p.category = "남성슈즈"
+p.title = "버켄스탁 아리조나"
+p.content = "트랜디하고 스타일리쉬한 슬리퍼"
+p.price = 113000
+p.color = "블랙(Black),갈색(Brown)"
+p.point = 5
+p.size = "250,255,260,265,270,275,280,285,290"
+p.image = File.open(File.join(Rails.root, 'm_2.jpg'))
+p.save
 
 p = Post.new
 p.user_id = 1
@@ -371,6 +346,30 @@ p.save
 p = Post.new
 p.user_id = 1
 p.category = "아동슈즈"
+p.title = "나이키 플렉스 익스피리언스 엘티알"
+p.content = "찍찍이로 신고 벗기 편한 나이키 운동화"
+p.price = 70000
+p.color = "블랙(Black),베이지(Beige)"
+p.point = 5
+p.size = "170,180,190,200,210,220"
+p.image = File.open(File.join(Rails.root, 'k_8.jpg'))
+p.save
+
+p = Post.new
+p.user_id = 1
+p.category = "아동슈즈"
+p.title = "반스 올드 스쿨"
+p.content = "패셔너블한 반스 운동화"
+p.price = 140000
+p.color = "블랙(Black),화이트(White)"
+p.point = 5
+p.size = "170,180,190,200,210,220"
+p.image = File.open(File.join(Rails.root, 'k_9.jpg'))
+p.save
+
+p = Post.new
+p.user_id = 1
+p.category = "아동슈즈"
 p.title = "반스 슬립-온 브이"
 p.content = "미국 국기가 연상되는 반스 슬립온"
 p.price = 52000
@@ -410,7 +409,7 @@ p.category = "아동슈즈"
 p.title = "부기베어 젤리"
 p.content = "비오는 날 신는 귀여운 장화"
 p.price = 32000
-p.color = "갈색(Brown),남색(Navy),블랙(Black),파랑(Blue)"
+p.color = "갈색(Brown),블랙(Black),파랑(Blue)"
 p.point = 2
 p.size = "170,180,190,200,210,220"
 p.image = File.open(File.join(Rails.root, 'k_12.jpg'))
@@ -434,7 +433,7 @@ p.category = "남성슈즈"
 p.title = "라코스테 쇼코트 URS"
 p.content = "두가지 색상으로 깔끔한 라코스테 운동화"
 p.price = 140000
-p.color = "남색(Navy),블랙(Black),화이트(White)"
+p.color = "블랙(Black),화이트(White)"
 p.point = 5
 p.size = "250,255,260,265,270,275,280,285,290"
 p.image = File.open(File.join(Rails.root, 'm_9.jpg'))
