@@ -1,21 +1,3 @@
-<!--<script type="text/javascript">
-var check = false;
-function CheckAll(){
-  var chk=document.getElementsByName("del_unit[]");
- if(check == false){
-    check=true;
-    for(var i=0; i<chk.length; i++){
-       chk[i].checked = true;
-    }
- }else{
-    for(var i=0; i<chk.length; i++){
-       chk[i].checked = false;
-    }
- }
-}
-</script>
--->
-
 
 <div class="container">
  <% if !flash[:alert].nil? %>
@@ -35,7 +17,6 @@ function CheckAll(){
       <table class="table">
 
          <tr class="active">
-   <!--        <td align=center><input type="checkbox" name="checkall" onclick="javascript:CheckAll()"></td> -->
            <td align=center>사진</td>
            <td align=center>상품명</td>
            <td align=center>수량</td>
@@ -46,9 +27,6 @@ function CheckAll(){
          </tr>
          <% @product.reverse.each do |product| %>
          <tr>
-           <!--<#% if (product.id).nil? %>
-           <td>kkkkkkk</td><#% end %> -->
-      <!--  <td align=center><input type="checkbox" id="del_id" name="del_unit[]"></td>-->
            <td align=center><a href="/jshoes/show/<%= product.post_id %>"><img src="<%= product.post.image %>" width="60" height="70"></a></td>
            <td><a href="/jshoes/show/<%= product.post_id %>"><%= product.post.title %></a><br>색상 : <%= product.color %>, 사이즈 : <%= product.size %></td>
            <td align=center><br><%= product.figure %></td>

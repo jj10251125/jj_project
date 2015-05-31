@@ -25,10 +25,6 @@ skip_before_action :login_check, :only => [:main, :shoes_category, :show, :revie
  
   def show
     @post = Post.find(params[:id])
-    #if session[:user_id] != 1
-    #  u = User.find(session[:user_id])
-    #  u.post_id = params[:id]
-    # end
   end
   
   def write

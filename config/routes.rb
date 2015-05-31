@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   get 'user/signup'
   get '/:category' => 'jshoes#shoes_category'
   get 'jshoes/order_confirm'
- # get 'jshoes/main'
   get 'user/info_check'
   get 'user/cart_all_delete'
   get 'jshoes/main'
@@ -40,8 +39,6 @@ Rails.application.routes.draw do
   post 'user/order_complete'
   get 'user/order_complete_page'
   post 'user/order'
-#  get 'user/order_detail/:id/' => 'user#order'
-#  get 'user/order'
   get 'user/order_list'
   post 'user/order_detail/:id' => 'user#order_detail'
   # The priority is based upon order of creation: first created -> highest priority.

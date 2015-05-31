@@ -79,7 +79,6 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
 
   def order_detail
     @order = Order.find(params[:id])
-    #@u = User.find(session[:user_id])
     @u = @order.user.username
   end
 
@@ -124,24 +123,9 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
         product.color = params[:post_color]
         product.figure = params[:figure]
         product.size = params[:post_size]
-
         product.save
 
-      #  p = Post.find(params[:post_id])
-      #  p.cart_id = product.id
-      #  p.save
- 
-      #  u = User.find(session[:user_id])
-      #  u.post_id = params[:post_id]
-      #  u.save
-
-      #  product = Cart.where(post_id: params[:post_id])[0]
-         product = Cart.where(user_id: session[:user_id], post_id: params[:post_id])[0]
-         
-      #  @cur = product.post.title
-      #   @cur = product.last
-      #  flash[:alert] = "상품이 장바구니에 담겼습니다."
-      #  redirect_to "/user/my_cart/#{product.post_id}"
+        product = Cart.where(user_id: session[:user_id], post_id: params[:post_id])[0]      
         redirect_to "/user/my_cart/#{product.post_id}"
         end
       end
@@ -150,23 +134,15 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
 
   def my_cart
     @item = Post.find(params[:id])
-    # item = Cart.last
-    # @item = item.posts[0]
   end
   
   def cart_list
- #   @u = User.where(id: session[:user_id])[0]
     @product = Cart.where(user_id: session[:user_id])
   end
 
   def order_list
-     
      @u = User.where(id: session[:user_id])[0]
      @order = Order.where(user_id: session[:user_id])
-    
-   #  @order.each do |order|    
-   #    order.total =  order.post.price + 2500
-   #  end
   end
 
   def order_complete
@@ -233,6 +209,7 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
     redirect_to :back
 
   end
+
   def order_cancel
     order = Order.find(params[:id])
     order.destroy 
