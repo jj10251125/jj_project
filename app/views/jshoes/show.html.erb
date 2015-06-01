@@ -27,7 +27,6 @@
       <img src="<%= @post.image_url(:medium) %>">
     </div>
     <div class="col-md-5">
- <!--    <form action="/user/push_cart" method="post">-->
     <form name="formName" method="post">
     <input type="hidden" name="post_id" value="<%= @post.id %>">
      <span style="font-size:27px;"><%= @post.title %></span>&nbsp;&nbsp; <span class="label label-danger">New</span>
@@ -65,10 +64,6 @@
         <input type=text name=figure value="1" style="width:20px; height:20px;">
            <input type=button value="up" onClick="javascript:this.form.figure.value++;">
            <input type=button value="down" onClick="javascript:this.form.figure.value--;">
-          <!-- <input type=text name=figure value="1" size=3 readonly>
-           <a href="#" onclick="javascript_:change(1);">▲</a><br>
-           <a href="#" onclick="javascript_:change(-1);">▼</a>
--->
  </td>
        </tr>
        <tr>
@@ -81,9 +76,6 @@
        <input type="button" value="장바구니" style="width:200px;height:60px; background-Color:purple; font-weight:bold; color:white; border:1px solid white; font-size:15px;" onclick="add_cart();">
        &nbsp;&nbsp;&nbsp;
        <input type="button" value="바로구매" style="width:150px;height:60px; background-Color:DeepPink; font-weight:bold; border:1px solid white; color:white; font-size:15px;" onclick="buy();">
- <!--         <form action="/user/order" method="get">
-      <input type="hidden" name="post_id" value="<#%= @post.id %>">
-         <input class="btn btn-info btn-lg" type="submit" value="바로구매"></form> -->
          </td>
        </tr>
      </table></form>
@@ -95,7 +87,19 @@
       <a href="/">전체 리스트 가기</a></p>
       </form>
     </div>
+
     <div class="col-md-1">
     </div>
   </div>
+  
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-7 text-center">
+     <br><br>
+     <img src="<%= @post.detail %>" width=700>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+
+
 </div>

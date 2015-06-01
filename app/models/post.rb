@@ -10,5 +10,6 @@ class Post < ActiveRecord::Base
   validates :color, :presence => { :message => "색상을 반드시 입력하셔야 합니다." }
   validates :size, :presence => { :message => "사이즈를 반드시 입력하셔야 합니다." }
   validates :point, :presence => { :message => "적립금을 반드시 입력하셔야 합니다." }
+  mount_uploader :detail, ImageUploader
   mount_uploader :image, ImageUploader
  end

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'user/member_out'
+  get 'user/out'
   get 'user/signup'
   get '/:category' => 'jshoes#shoes_category'
   get 'jshoes/order_confirm'

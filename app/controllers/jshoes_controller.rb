@@ -41,6 +41,7 @@ skip_before_action :login_check, :only => [:main, :shoes_category, :show, :revie
     post.color = params[:post_color]
     post.size = params[:post_size]
     post.image = params[:image]
+    post.detail = params[:detail]
     if post.save
       flash[:alert] = "등록되었습니다."
       redirect_to "/jshoes/show/#{post.id}"

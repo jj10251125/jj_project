@@ -6,6 +6,14 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
   def signup
   end
 
+  def out
+    user = User.find(session[:user_id])
+    user.destroy
+    reset_session
+    flash[:alert] = "탈퇴하였습니다."
+    redirect_to "/"
+  end
+
   def info_check
     @user = User.find(session[:user_id])
   end

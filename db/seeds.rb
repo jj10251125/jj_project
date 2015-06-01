@@ -72,11 +72,12 @@ p.user_id = 1
 p.category = "남성슈즈"
 p.title = "버켄스탁 아리조나"
 p.content = "트랜디하고 스타일리쉬한 슬리퍼"
-p.price = 113000
+p.price = 64500
 p.color = "갈색(Brown),남색(Navy),블랙(Black)"
-p.point = 5
+p.point = 3
 p.size = "250,255,260,265,270,275,280,285,290"
 p.image = File.open(File.join(Rails.root, 'm_2.jpg'))
+p.detail = File.open(File.join(Rails.root, 'detail_2.jpg'))
 p.save
 
 p = Post.new
@@ -221,6 +222,7 @@ p.color = "블랙(Black),화이트(white)"
 p.size = "170,180,190,200,210,220"
 p.point = 5
 p.image = File.open(File.join(Rails.root, 'k_1.jpg'))
+p.detail = File.open(File.join(Rails.root, 'detail_4.jpg'))
 p.save
 
 p = Post.new
@@ -366,6 +368,7 @@ p.color = "베이지(Beige),분홍(Pink),블랙(Black),화이트(White),회색(G
 p.point = 1
 p.size = "220,225,230,235,240,245,250"
 p.image = File.open(File.join(Rails.root, 'w_3.JPG'))
+p.detail = File.open(File.join(Rails.root, 'detail_3.jpg'))
 p.save
 
 p = Post.new
@@ -426,6 +429,7 @@ p.color = "노랑(Yellow),보라(Purple),분홍(Pink),블랙(Black),파랑(Blue)
 p.point = 2
 p.size = "220,225,230,235,240,245,250"
 p.image = File.open(File.join(Rails.root, 'w_5.JPG'))
+p.detail = File.open(File.join(Rails.root, 'detail_1.jpg'))
 p.save
 
 p = Post.new
