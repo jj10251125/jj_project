@@ -70,14 +70,14 @@
          <td>해외배송 여부</td>
          <td>국내, 해외 배송 가능</td>
        </tr>
-       <tr>
-     <!--    <td align="center"><br><input class="btn btn-primary btn-lg" type="submit" value="장바구니"></td></form>-->
+      <% if session[:user_id] != 1 %> 
+      <tr>
       <td colspan=2><br>
        <input type="button" value="장바구니" style="width:200px;height:60px; background-Color:purple; font-weight:bold; color:white; border:1px solid white; font-size:15px;" onclick="add_cart();">
        &nbsp;&nbsp;&nbsp;
        <input type="button" value="바로구매" style="width:150px;height:60px; background-Color:DeepPink; font-weight:bold; border:1px solid white; color:white; font-size:15px;" onclick="buy();">
          </td>
-       </tr>
+       </tr> <% end %>
      </table></form>
        <hr>     
       <% if session[:user_id] == 1 %>

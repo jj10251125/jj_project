@@ -12,6 +12,7 @@ class CreateOrders < ActiveRecord::Migration
       t.integer :figure
       t.string :size
       t.integer :point
+      t.string :delivery
 
       t.timestamps null: false
     end

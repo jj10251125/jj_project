@@ -1,4 +1,10 @@
 <div class="container">
+<% if !flash[:alert].nil? %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+  <% end %>
+
  <div class="row">
     <div class="col-md-1">
     </div>
@@ -14,6 +20,7 @@
            <td align=center>상품명</td>
            <td align=center>결제금액</td>
            <td align=center>주문상세</td>
+           <td align=center>배송대기</td>
          </tr>
          <% @order.reverse.each do |order| %>
          <tr>
@@ -24,6 +31,12 @@
            <td align=center>
               <form action="/user/order_detail/<%= order.id %>" method="post">
                  <input class="btn btn-default btn-sm" type="submit" value="조회">
+
+              </form>
+           </td>
+           <td align=center>
+              <form action="/jshoes/deliver/<%= order.id %>" method="get">
+                 <input class="btn btn-default btn-sm" type="submit" value="배송">
 
               </form>
            </td>

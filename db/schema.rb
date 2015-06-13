@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20150601095913) do
     t.integer  "figure"
     t.string   "size"
     t.integer  "point"
+    t.string   "delivery"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end

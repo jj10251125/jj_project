@@ -7,6 +7,15 @@ skip_before_action :login_check, :only => [:main, :shoes_category, :show, :revie
     @posts = Post.all
   end
 
+  def deliver
+    o = Order.find(params[:id])
+    o.delivery = "배송중"
+    if o.save
+      flash[:alert] = "배송처리 완료하였습니다."
+      redirect_to :back
+    end
+  end
+
   def shoes_category
     case params[:category]
     when "woman"

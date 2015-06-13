@@ -1,3 +1,23 @@
+<script type="text/javascript">
+  function add_review(){
+    var f=document.formName;
+    f.action="/user/review_write"
+    f.submit();
+  }
+  function back(){
+    var f=document.formName;
+    f.action="/user/order_list"
+    f.submit();
+  }
+  function back_admin(){
+    var f=document.formName;
+    f.action="/jshoes/order_confirm"
+    f.submit();
+  }
+
+</script>
+
+
 <div class="container">
 
  <div class="row">
@@ -59,7 +79,16 @@
       </tr>
    </table>
 
+   <form name="formName" method="get">
+    <% if session[:user_id] != 1 %>
+ <input type="button" value="상품후기등록" style="background-Color:White; color:black; border-radius:5px; font-size:13px;" onclick="add_review();"> &nbsp;&nbsp;
+    <input type="button" value="돌아가기" style="background-Color:White; color:black; border-radius:5px; font-size:13px;" onclick="back();">
+   <% else %>
 
+ <input type="button" value="돌아가기" style="background-Color:White; color:black; border-radius:5px; font-size:13px;" onclick="back_admin();">
+
+   <% end %>
+   </form>
     </div>
     <div class="col-md-1">
     </div>

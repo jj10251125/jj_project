@@ -166,6 +166,7 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
      o.color = params[:color]
      o.figure = params[:order_count]
      o.point = params[:total_point]
+     o.delivery = "주문처리중" 
      if o.save    
         flash[:alert] = "주문이 완료되었습니다."
         redirect_to "/user/order_complete_page"
@@ -220,9 +221,14 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
 
   def order_cancel
     order = Order.find(params[:id])
-    order.destroy 
-    flash[:alert] = "주문이 취소되었습니다."
-    redirect_to :back
+    if order.delivery == "배송중"
+      flash[:alert] = " 주문취소는 주문처리중 상태에서만 가능합니다."
+      redirect_to :back
+    else
+      order.destroy 
+      flash[:alert] = "주문이 취소되었습니다."
+      redirect_to :back
+    end
   end
 
   def check

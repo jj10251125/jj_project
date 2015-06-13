@@ -32,7 +32,7 @@
                
               </form>
            </td>
-           <td align=center>주문처리중</td>
+           <td align=center><%= order.delivery %></td>
            <td align=center><a href="/user/order_cancel/<%= order.id %>">주문취소</a></td>
          </tr>
          <% end %>
