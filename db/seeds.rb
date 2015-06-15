@@ -460,5 +460,5 @@ u.password = "testtest"
 u.email = "hihaaa@naver.com"
 u.address = "Seoul"
 u.phone_number = "010-1234-5678"
-u.point = 0
+u.point = 3000
 u.save

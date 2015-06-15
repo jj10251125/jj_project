@@ -56,9 +56,15 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
     u.address = params[:address]
     u.phone_number = params[:phone_number]
     u.email = params[:email]
+    u.point = 3000
     if params[:password] == params[:retype_password]
       u.password = params[:password]
       if u.save
+        p = Point.new
+        p.user_id = u.id
+        p.money = u.point
+        p.content = "회원가입 기념 적립금~!"
+        p.save
         redirect_to "/user/signup_complete_page"
       else
         flash[:alert] = u.errors.values.flatten.join(' ')
