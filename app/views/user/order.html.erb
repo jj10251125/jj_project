@@ -51,13 +51,15 @@
      <br>
 
 <strong><span style="color:gray; font-size:13px;">* 배송지 정보(Shipping Inform ation)</span></strong><br><br>
-     <form action="/user/order_complete" method="post">
+     <!--<form action="/user/order_complete" method="post">-->
+     <form action="/user/pay" method="post">
          <input type="hidden" name="post_id" value="<%= @post_id %>">
          <input type="hidden" name="total_price" value="<%= @total_price %>">
          <input type="hidden" name="color" value="<%= @color %>">
          <input type="hidden" name="size" value="<%= @size %>">
          <input type="hidden" name="order_count" value="<%= @order_count %>">
          <input type="hidden" name="total_point" value="<%= @total_point %>">
+         <input type="hidden" name="user_point" value="<%= @user.point %>">
       <table class="table table-bordered table-condensed">
         <tr>
           <td class="warning" align=center width=100><strong>받으시는 분</strong></td>
@@ -76,6 +78,12 @@
           <td><input type="text" name="message" style="width:400px;"></td>
         </tr>
       </table>
+      <br>
+<strong><span style="color:gray; font-size:13px;">* 적립금 사용</span></strong><br><br>
+       <input type="text" name="use_point" value=0 style="width:50px;">원 (사용가능 적립금 : <%= @user.point %>원)
+
+
+
       <p style="text-align:center;"><input class="btn btn-default btn-lg" type="submit" value="주문하기"></p>
 
       </form>

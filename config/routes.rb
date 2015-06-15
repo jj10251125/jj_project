@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'user/my_page'
+  post 'user/pay'
   get 'user/member_out'
   get 'jshoes/deliver/:id' => 'jshoes#deliver'
   get 'user/out'
@@ -42,6 +44,7 @@ Rails.application.routes.draw do
   post 'user/order_complete'
   get 'user/order_complete_page'
   post 'user/order'
+  get 'user/order'
   get 'user/order_list'
   post 'user/order_detail/:id' => 'user#order_detail'
   # The priority is based upon order of creation: first created -> highest priority.

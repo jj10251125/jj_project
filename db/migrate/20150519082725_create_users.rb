@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :address
       t.string :phone_number
       t.string :email  
+      t.integer :point
 
       t.timestamps null: false
     end

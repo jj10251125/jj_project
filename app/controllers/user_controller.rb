@@ -6,6 +6,27 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
   def signup
   end
 
+  def my_page
+     @u = User.find(session[:user_id])
+     @point = Point.where(user_id: session[:user_id])
+  end
+
+  def pay
+
+     @post_id = params[:post_id]
+     @name = params[:name]
+     @address = params[:address]
+     @phone_number = params[:phone_number]
+     @message = params[:message]
+     @total = params[:total_price]
+     @use_point = params[:use_point]    
+     @real_price = @total.to_i - @use_point.to_i
+     @size = params[:size]
+     @color = params[:color]
+     @figure = params[:order_count]
+     @point = params[:total_point]
+  end
+
   def out
     user = User.find(session[:user_id])
     user.destroy
@@ -154,6 +175,7 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
   end
 
   def order_complete
+     
      o = Order.new
      o.user_id = session[:user_id]
      o.post_id = params[:post_id]
@@ -166,13 +188,26 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
      o.color = params[:color]
      o.figure = params[:order_count]
      o.point = params[:total_point]
+     o.use_point = params[:use_point]
      o.delivery = "주문처리중" 
-     if o.save    
+     u = User.find(session[:user_id])
+     p = params[:total_point]
+     u.point = u.point + p.to_i
+     up = params[:use_point]
+     u.point = u.point - up.to_i
+     po = Point.new
+     po.user_id = session[:user_id]
+     po.content = "물품구입에 대한 적립금입니다. ^^"
+     po.money = p.to_i
+     
+     if o.save
+        u.save
+        po.save    
         flash[:alert] = "주문이 완료되었습니다."
         redirect_to "/user/order_complete_page"
      else
         flash[:alert] = o.errors.values.flatten.join(' ')
-        redirect_to :back
+        redirect_to "/jshoes/show/#{o.post_id}"
      end
   end
 
@@ -224,8 +259,14 @@ skip_before_action :login_check, :only => [:signup, :signup_complete, :signup_co
     if order.delivery == "배송중"
       flash[:alert] = " 주문취소는 주문처리중 상태에서만 가능합니다."
       redirect_to :back
-    else
-      order.destroy 
+    else 
+      u = User.find(session[:user_id])
+      u.point = u.point - order.point
+      u.point = u.point + order.use_point
+      u.save
+      p = Point.where(user_id: session[:user_id], money: order.point)[0]
+      p.destroy
+      order.destroy
       flash[:alert] = "주문이 취소되었습니다."
       redirect_to :back
     end

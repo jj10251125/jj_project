@@ -13,7 +13,7 @@ class CreateOrders < ActiveRecord::Migration
       t.string :size
       t.integer :point
       t.string :delivery
-
+      t.integer :use_point
       t.timestamps null: false
     end
   end

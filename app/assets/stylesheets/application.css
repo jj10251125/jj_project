@@ -18,14 +18,16 @@
       height: 120px;
       padding: 50px 0px 0px 0px;
       text-align: center;
+     
 }
 
 a.gourmet-title-link {
-      color: #a3293d;
+      
+      color: MediumOrchid;
 }
 
 a.gourmet-title-link:hover {
-      color: #ee3b53;
+      color: DeepPink;
       text-decoration: none;
 }
 

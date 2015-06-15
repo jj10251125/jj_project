@@ -6,12 +6,6 @@
 <nav class="navbar navbar-default" role="navigation">
   <div class="container">
     <ul class="nav navbar-nav navbar-left">
-     <!--
-      <li class="dropdown">  
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">여성슈즈<span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">  
-            <li><a href="/woman">힐</a></li>
-          </ul></li> -->
      
       <li><a href="/woman">여성슈즈</a></li> 
       <li><a href="/man">남성슈즈</a></li>
@@ -27,11 +21,13 @@
       
 
       <% if session[:user_id] != 1 %>
-      <li class="dropdown">  
+      <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">마이페이지<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">  
             <li><a href="/user/cart_list">장바구니</a></li>
             <li><a href="/user/order_list">주문조회</a></li>
+            <li><a href="/user/my_page">적립금조회</a></li>
+            <li class="divider"></li>
             <li><a href="/user/info_check">회원정보변경</a></li>
             <li><a href="/user/member_out">회원탈퇴</a></li>            
           </ul></li>

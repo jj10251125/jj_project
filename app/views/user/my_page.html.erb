@@ -1,0 +1,34 @@
+<div class="container">
+
+<div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-10">
+    <br><br>
+    <span style="font-size:25px;"><strong>RESERVE LIST</strong></span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:gray;font-size:13px;">회원님의 적립금 내역입니다.</span>
+    <hr>
+<div style="border:3px solid #c3c3c3; padding:10px;"><span style="color:blue;"><strong>[<%= @u.username %>]</strong></span>님이 쇼핑몰에서 사용 가능한 적립금 내역입니다.</div>
+    <br>
+<div style="border:1px solid #c3c3c3; padding:10px; border-radius:8px; width:300px"><span style="color:indianred;font-size:10px;"><strong>></strong></span>&nbsp;&nbsp;총 보유 적립금액&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="color:darkblue;"><%= @u.point %>원</strong></span></div>
+   <hr>
+    <span style="font-size:13px">적립금 내역</span>
+    <table class="table">
+         <tr class="active">
+           <td align=center width=800>적립내역</td>
+           <td align=center>적립금</td>
+         </tr>
+         <% @point.reverse.each do |point| %>
+         <tr>
+           <td align=center><%= point.content %></td>
+           <td align=center><strong><span style="color:indianred"><%= point.money %></span>원</strong></td>
+         </tr>
+         <% end %>
+         
+    </table>
+
+
+   <div class="col-md-1"></div>
+
+</div>
+
+</div>

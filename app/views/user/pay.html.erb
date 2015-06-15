@@ -1,0 +1,67 @@
+
+<div class="container">
+  <% if !flash[:alert].nil? %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+  <% end %>
+
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-10">
+<strong><span style="color:gray; font-size:13px;">* 결제정보</span></strong><br><br>
+
+<span style="color:deeppink;"><strong>[ 결제금액: <%= @real_price %> 원 (적립금 사용: <%= @use_point %>원)]</strong></span>
+    <form action="/user/order_complete" method="post">
+         <input type="hidden" name="use_point" value="<%= @use_point %>">
+         <input type="hidden" name="post_id" value="<%= @post_id %>">
+         <input type="hidden" name="name" value="<%= @name %>">
+         <input type="hidden" name="address" value="<%= @address %>">
+         <input type="hidden" name="phone_number" value="<%= @phone_number %>">
+         <input type="hidden" name="message" value="<%= @message %>">
+         <input type="hidden" name="total_price" value="<%= @real_price %>">
+         <input type="hidden" name="color" value="<%= @color %>">
+         <input type="hidden" name="size" value="<%= @size %>">
+         <input type="hidden" name="order_count" value="<%= @figure %>">
+         <input type="hidden" name="total_point" value="<%= @point %>">
+
+    <table class="table table-bordered table-condensed">
+      <tr>
+        <td class="success" align=center width=100><strong>카드</strong></td>
+        <td><select name="card">
+          <option value="essential">--- 카드선택 ---</option> 
+          <option value="NH">NH채움카드</option>
+          <option value="KB">KB국민</option>     
+          <option value="hana">하나카드</option>
+          <option value="bc">비씨카드</option>
+          <option value="hanatwo">하나(외환)</option>
+          <option value="sin">신한카드</option>
+          <option value="rot">롯데카드</option>     
+          </select></td>
+      </tr>
+      <tr>
+        <td class="success" align=center><strong>카드번호</strong></td>
+        <td><input type="text" name="num" style="width:300px;"></td>
+      </tr>
+      <tr>
+        <td class="success" align=center><strong>암호</strong></td>
+        <td><input type="password" name="password" style="width:300px;"></td>
+      </tr>
+    </table>
+
+
+
+<p style="text-align:center;"><input class="btn btn-default btn-lg" type="submit" value="결제하기"></p>
+
+
+</form>
+
+    <div class="col-md-1"></div>
+  </div>
+
+
+</div>
+
